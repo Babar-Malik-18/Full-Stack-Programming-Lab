@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Calculator</title>
+</head>
+<body>
+
+<center>
+    <h1>Interactive Calculator</h1>
+    <hr width="50%">
+
+    <br>
+
+    <input type="number" id="num1" placeholder="Enter First Number">
+
+    <select id="operator">
+        <option value="+">Addition (+)</option>
+        <option value="-">Subtraction (-)</option>
+        <option value="*">Multiplication (×)</option>
+        <option value="/">Division (÷)</option>
+    </select>
+
+    <input type="number" id="num2" placeholder="Enter Second Number">
+
+    <br><br>
+
+    <button onclick="calculate()">Calculate</button>
+    <button onclick="resetCalc()">Reset</button>
+
+    <br><br>
+
+    <div id="resultBox" 
+         style="width:250px; padding:10px; border:1px solid black;">
+        Result:
+    </div>
+
+</center>
+
+<script>
+
+function calculate() {
+
+    let n1 = parseFloat(document.getElementById("num1").value);
+    let n2 = parseFloat(document.getElementById("num2").value);
+    let op = document.getElementById("operator").value;
+    let box = document.getElementById("resultBox");
+
+    if (isNaN(n1) || isNaN(n2)) {
+        box.innerHTML = "Result: Please enter valid numbers!";
+        box.style.backgroundColor = "white";
+        return;
+    }
+
+    if (op === "/" && n2 === 0) {
+        box.innerHTML = "Result: Cannot divide by zero!";
+        box.style.backgroundColor = "white";
+        return;
+    }
+
+    let result;
+
+    if (op === "+") {
+        result = n1 + n2;
+    } 
+    else if (op === "-") {
+        result = n1 - n2;
+    } 
+    else if (op === "*") {
+        result = n1 * n2;
+    } 
+    else if (op === "/") {
+        result = n1 / n2;
+    }
+
+    box.innerHTML = "Result: " + result;
+
+    if (result > 0) {
+        box.style.backgroundColor = "lightgreen";
+    } 
+    else if (result < 0) {
+        box.style.backgroundColor = "lightcoral";
+    } 
+    else {
+        box.style.backgroundColor = "lightgray";
+    }
+}
+
+function resetCalc() {
+    document.getElementById("num1").value = "";
+    document.getElementById("num2").value = "";
+    document.getElementById("resultBox").innerHTML = "Result:";
+    document.getElementById("resultBox").style.backgroundColor = "white";
+}
+
+</script>
+
+</body>
+</html>
