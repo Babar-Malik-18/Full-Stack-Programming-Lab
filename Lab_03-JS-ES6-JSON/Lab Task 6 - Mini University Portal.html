@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mini University Portal</title>
+<style>
+body{
+    font-family:'Segoe UI', Arial;
+    margin:0;
+    background:linear-gradient(135deg,#fd7e14,#ffc107);
+    padding:40px;
+}
+.container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+.section{
+    margin-bottom:20px;
+}
+.card{
+    background:#f8f9fa;
+    padding:12px;
+    margin:6px 0;
+    border-radius:8px;
+}
+.success{
+    margin-top:20px;
+    font-weight:bold;
+    color:green;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Mini University Portal</h1>
+<div id="output"><b>Saving university data...</b></div>
+</div>
+
+<script>
+class Student{
+constructor(id,name){
+this.id=id;
+this.name=name;
+}
+}
+
+const studentMap=new Map();
+studentMap.set(1,new Student(1,"Babar Ali"));
+studentMap.set(2,new Student(2,"Syed Ahmed"));
+
+const courseSet=new Set(["AI","Web Development","Database"]);
+
+function saveData(){
+return new Promise(resolve=>{
+setTimeout(()=>{
+resolve("University data saved successfully!");
+},2000);
+});
+}
+
+saveData().then(message=>{
+let result="<div class='section'><h3>Students</h3>";
+studentMap.forEach(s=>{
+result+=`<div class='card'>${s.name}</div>`;
+});
+result+="</div><div class='section'><h3>Courses</h3>";
+for(let c of courseSet){
+result+=`<div class='card'>${c}</div>`;
+}
+result+=`</div><div class='success'>${message}</div>`;
+document.getElementById("output").innerHTML=result;
+});
+</script>
+
+</body>
+</html>

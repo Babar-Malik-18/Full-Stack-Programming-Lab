@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Async Data Loader</title>
+<style>
+body{
+    font-family:'Segoe UI', Arial;
+    margin:0;
+    background:linear-gradient(120deg,#f6c23e,#e74a3b);
+    padding:40px;
+}
+.container{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+ul{
+    text-align:left;
+    margin-top:20px;
+}
+li{
+    padding:6px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Asynchronous User Loader</h1>
+<div id="output"><b>Loading users...</b></div>
+</div>
+
+<script>
+function fetchUsers(){
+return new Promise((resolve,reject)=>{
+const success=true;
+setTimeout(()=>{
+if(success){
+resolve([{name:"Babar Ali"},{name:"Syed Ahmed"},{name:"Abdullah Khan"}]);
+}else{
+reject("Error loading users");
+}
+},3000);
+});
+}
+
+fetchUsers()
+.then(users=>{
+let result="<h3>Users Loaded</h3><ul>";
+users.forEach(u=>result+=`<li>${u.name}</li>`);
+result+="</ul>";
+document.getElementById("output").innerHTML=result;
+})
+.catch(e=>{
+document.getElementById("output").innerHTML=`<b>${e}</b>`;
+});
+</script>
+
+</body>
+</html>

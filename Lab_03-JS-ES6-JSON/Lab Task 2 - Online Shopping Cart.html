@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shopping Cart</title>
+<style>
+body{
+    font-family:'Segoe UI', Arial;
+    margin:0;
+    background:linear-gradient(120deg,#36b9cc,#858796);
+    padding:40px;
+}
+.box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+.info{
+    background:#f8f9fc;
+    padding:15px;
+    border-radius:8px;
+    margin:12px 0;
+}
+.highlight{
+    font-size:20px;
+    color:#1cc88a;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h1>Online Shopping Cart</h1>
+<div id="output"></div>
+</div>
+
+<script>
+function addToCart(...items){return items;}
+const products=["Laptop","Mouse","Keyboard","Monitor"];
+let cart=addToCart(...products);
+const clonedCart=[...cart];
+const [firstProduct,...remainingProducts]=clonedCart;
+
+document.getElementById("output").innerHTML=`
+<div class="info"><b>Total Items:</b> <span class="highlight">${clonedCart.length}</span></div>
+<div class="info"><b>First Product:</b> ${firstProduct}</div>
+<div class="info"><b>Remaining Products:</b> ${remainingProducts.join(", ")}</div>
+`;
+</script>
+
+</body>
+</html>
