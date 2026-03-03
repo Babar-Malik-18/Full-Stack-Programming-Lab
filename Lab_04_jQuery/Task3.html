@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Validation Form</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            background: #eef2f3;
+            padding: 50px;
+            font-family: Tahoma;
+        }
+
+        .formBox {
+            width: 350px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+
+        .invalid {
+            border: 2px solid crimson;
+        }
+
+        .valid {
+            border: 2px solid green;
+        }
+
+        #msg {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="formBox">
+        <h2>Signup Form</h2>
+        <form id="regForm">
+            <input type="text" id="username" placeholder="Username">
+            <input type="email" id="useremail" placeholder="Email">
+            <input type="password" id="userpass" placeholder="Password">
+            <button type="submit">Register</button>
+        </form>
+        <div id="msg"></div>
+    </div>
+
+    <script>
+        $(function () {
+
+            $("input").on("blur", function () {
+                if ($(this).val().length < 4) {
+                    $(this).addClass("invalid").removeClass("valid");
+                } else {
+                    $(this).addClass("valid").removeClass("invalid");
+                }
+            });
+
+            $("#regForm").submit(function (e) {
+                e.preventDefault();
+
+                if ($(".invalid").length == 0) {
+                    $("#msg").text("Registration Successful!").css("color", "green");
+                } else {
+                    $("#msg").text("Please correct highlighted fields").css("color", "red");
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

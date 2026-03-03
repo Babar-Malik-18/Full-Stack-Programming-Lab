@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chained Style Editor</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            background: #f0f8ff;
+            padding: 50px;
+            font-family: Calibri;
+            text-align: center;
+        }
+
+        #textBox {
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            display: inline-block;
+        }
+
+        button {
+            margin: 8px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .active {
+            background: #333;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Live Style Editor</h2>
+
+    <div id="textBox">
+        <p id="editableText">Customize My Style Using jQuery</p>
+    </div>
+
+    <br>
+
+    <button id="styleBtn">Apply Multiple Styles</button>
+    <button id="toggleBold">Bold</button>
+    <button id="toggleItalic">Italic</button>
+
+    <script>
+        $(function () {
+
+            $("#styleBtn").click(function () {
+                $("#editableText")
+                    .css("font-size", "24px")
+                    .css("color", "#fff")
+                    .css("background", "#007bff")
+                    .css("padding", "10px")
+                    .css("border-radius", "8px");
+            });
+
+            $("#toggleBold").click(function () {
+                $("#editableText").css("font-weight", function (i, val) {
+                    return val == "bold" ? "normal" : "bold";
+                });
+            });
+
+            $("#toggleItalic").click(function () {
+                $("#editableText").css("font-style", function (i, val) {
+                    return val == "italic" ? "normal" : "italic";
+                });
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
