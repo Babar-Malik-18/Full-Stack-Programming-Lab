@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sortable List</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            padding: 50px;
+            font-family: Arial;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            width: 300px;
+            margin: auto;
+        }
+
+        li {
+            padding: 12px;
+            margin: 8px 0;
+            background: #e9ecef;
+            cursor: move;
+            border-radius: 6px;
+        }
+
+        .dragging {
+            opacity: 0.5;
+            background: #ffc107;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 align="center">Drag & Drop List</h2>
+
+    <ul id="sortableList">
+        <li draggable="true">HTML</li>
+        <li draggable="true">CSS</li>
+        <li draggable="true">JavaScript</li>
+        <li draggable="true">jQuery</li>
+    </ul>
+
+    <script>
+        $(function () {
+
+            let draggedItem = null;
+
+            $("li").on("dragstart", function () {
+                draggedItem = this;
+                $(this).addClass("dragging");
+            });
+
+            $("li").on("dragend", function () {
+                $(this).removeClass("dragging");
+            });
+
+            $("li").on("dragover", function (e) {
+                e.preventDefault();
+            });
+
+            $("li").on("drop", function () {
+                if (this !== draggedItem) {
+                    $(this).before(draggedItem);
+                }
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

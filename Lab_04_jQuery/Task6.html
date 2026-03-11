@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>API Data Fetcher</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 40px;
+            background: #fafafa;
+        }
+
+        .post {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 5px solid #007bff;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Latest Posts</h2>
+    <div id="postContainer"></div>
+    <button id="loadMore">Load More</button>
+
+    <script>
+        $(function () {
+
+            let start = 1;
+            let limit = 3;
+
+            function fetchPosts() {
+                $.get("https://jsonplaceholder.typicode.com/posts?_start=" + start + "&_limit=" + limit,
+                    function (data) {
+                        data.forEach(function (post) {
+                            $("#postContainer").append(
+                                "<div class='post'><h4>" + post.title + "</h4><p>" + post.body + "</p></div>"
+                            );
+                        });
+                        start += limit;
+                    });
+            }
+
+            $("#loadMore").click(function () {
+                fetchPosts();
+            });
+
+            fetchPosts();
+
+        });
+    </script>
+
+</body>
+
+</html>

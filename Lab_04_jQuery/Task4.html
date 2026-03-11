@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Modern Tabs</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .nav {
+            background: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .nav span {
+            color: white;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .section {
+            display: none;
+            padding: 60px;
+            height: 400px;
+        }
+
+        #one {
+            background: #f8d7da;
+        }
+
+        #two {
+            background: #d4edda;
+        }
+
+        #three {
+            background: #d1ecf1;
+        }
+
+        #four {
+            background: #fff3cd;
+        }
+
+        .activeTab {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <span data-show="#one" class="activeTab">Home</span>
+        <span data-show="#two">About</span>
+        <span data-show="#three">Services</span>
+        <span data-show="#four">Contact</span>
+    </div>
+
+    <div id="one" class="section" style="display:block;">Home Section</div>
+    <div id="two" class="section">About Section</div>
+    <div id="three" class="section">Services Section</div>
+    <div id="four" class="section">Contact Section</div>
+
+    <script>
+        $(function () {
+
+            $(".nav span").click(function () {
+
+                let target = $(this).data("show");
+
+                $(".nav span").removeClass("activeTab");
+                $(this).addClass("activeTab");
+
+                $(".section").fadeOut(200);
+                $(target).delay(200).fadeIn(400);
+
+                $("html,body").animate({
+                    scrollTop: $(target).offset().top
+                }, 700);
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

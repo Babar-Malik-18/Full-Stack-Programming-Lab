@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz Game</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 50px;
+            background: #f4f6f9;
+            text-align: center;
+        }
+
+        .option {
+            display: block;
+            margin: 10px auto;
+            padding: 8px 12px;
+            width: 200px;
+            cursor: pointer;
+            background: #dee2e6;
+            border: none;
+        }
+
+        .option:hover {
+            background: #adb5bd;
+        }
+
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2 id="question"></h2>
+    <div id="options"></div>
+    <button id="nextBtn">Next</button>
+    <div id="result"></div>
+
+    <script>
+        $(function () {
+
+            let quizData = [
+                { q: "Which language is used for styling?", o: ["HTML", "CSS", "Python"], a: 1 },
+                { q: "Which library simplifies JavaScript?", o: ["React", "jQuery", "Laravel"], a: 1 },
+                { q: "Which tag creates hyperlink?", o: ["<a>", "<p>", "<div>"], a: 0 }
+            ];
+
+            let index = 0;
+            let score = 0;
+
+            function loadQuestion() {
+                $("#question").text(quizData[index].q);
+                $("#options").empty();
+                quizData[index].o.forEach(function (opt, i) {
+                    $("#options").append(
+                        "<button class='option' data-id='" + i + "'>" + opt + "</button>"
+                    );
+                });
+            }
+
+            $(document).on("click", ".option", function () {
+                let selected = $(this).data("id");
+                if (selected == quizData[index].a) {
+                    score++;
+                }
+                $(".option").prop("disabled", true);
+            });
+
+            $("#nextBtn").click(function () {
+                index++;
+                if (index < quizData.length) {
+                    loadQuestion();
+                } else {
+                    $("#question,#options,#nextBtn").hide();
+                    $("#result").hide().text("Your Final Score: " + score)
+                        .fadeIn(800);
+                }
+            });
+
+            loadQuestion();
+
+        });
+    </script>
+
+</body>
+
+</html>

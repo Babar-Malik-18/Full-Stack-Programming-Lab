@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Data Using JSON</title>
+
+<style>
+body{
+    font-family:'Segoe UI', Arial;
+    margin:0;
+    background:linear-gradient(135deg,#198754,#20c997);
+    padding:40px;
+}
+.container{
+    max-width:900px;
+    margin:auto;
+    background:#ffffff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+.student-card{
+    background:#f8f9fa;
+    padding:18px;
+    margin-bottom:15px;
+    border-radius:10px;
+    border-left:6px solid #198754;
+}
+.student-card h3{
+    margin:0 0 10px 0;
+}
+.info{
+    margin:4px 0;
+}
+.json-box{
+    background:#e9f7ef;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
+    font-size:14px;
+    overflow:auto;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+<h1>Student Data Using JSON</h1>
+<div id="output"></div>
+</div>
+
+<script>
+
+const students = [
+    { name: "Babar Ali", age: 22, semester: 6, courses: ["JavaScript","HTML","Next","Database"] },
+    { name: "Syed Ahmed", age: 21, semester: 5, courses: ["CSS","React"] },
+    { name: "Abdullah Khan", age: 23, semester: 7, courses: ["Node","Database"] }
+];
+
+const jsonString = JSON.stringify(students, null, 2);
+
+const parsedStudents = JSON.parse(jsonString);
+
+let result = `
+<div class="json-box">
+<b>JSON Format Data:</b><br>
+<pre>${jsonString}</pre>
+</div>
+`;
+
+parsedStudents.forEach(student => {
+
+    const { name, age, semester, courses } = student;
+
+    result += `
+    <div class="student-card">
+        <h3>${name}</h3>
+        <div class="info"><b>Age:</b> ${age}</div>
+        <div class="info"><b>Semester:</b> ${semester}</div>
+        <div class="info"><b>Courses:</b> ${courses.join(", ")}</div>
+    </div>
+    `;
+});
+
+document.getElementById("output").innerHTML = result;
+
+</script>
+
+</body>
+</html>
