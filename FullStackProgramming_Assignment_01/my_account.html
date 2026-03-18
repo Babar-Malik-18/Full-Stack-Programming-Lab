@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotSpring Portable Spas – My Account</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/my_account.css"/>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Call for Customer support: <a href="tel:02038989565" class="phone">020 38989565</a></span>
+  <div>
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">
+    <span class="logo-text">HOTSPRING<sup style="font-size:10px;">®</sup></span>
+    <span class="logo-sub">Portable Spas</span>
+  </a>
+  <div>
+    <a href="shopping-cart.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> My Cart: 0 Item(s)</a>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- SEARCH BAR -->
+<div class="search-bar">
+  <div class="nav-links">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <form class="search-form" onsubmit="return false;">
+    <input type="text" placeholder="Search"/>
+    <button type="submit">SEARCH</button>
+  </form>
+</div>
+
+<!-- PAGE BG -->
+<div class="page-bg">
+  <div class="breadcrumb-bar" style="max-width:900px;margin:0 auto;">
+    <a href="index.html">Home</a><span>›</span>
+    <a href="#">User Account</a><span>›</span>
+    <span>My Account</span>
+  </div>
+
+  <div class="account-container">
+    <h2>User Profile Details</h2>
+
+    <!-- USER PROFILE -->
+    <div class="section-box">
+      <h5>User Profile</h5>
+      <p style="font-size:12px;margin-bottom:6px;">Hello <strong>User name!</strong> From your account you can view your recent orders, manage your shipping and billing addresses.</p>
+      <a href="#" class="edit-link" onclick="togglePasswordForm(); return false;">edit your password and account details.</a>
+      <!-- Edit Password Form -->
+      <div class="edit-form" id="passwordForm">
+        <div class="row g-2">
+          <div class="col-12 col-md-4">
+            <label>Current Password</label>
+            <input type="password" id="currentPass" placeholder="Current password"/>
+          </div>
+          <div class="col-12 col-md-4">
+            <label>New Password</label>
+            <input type="password" id="newPass" placeholder="New password"/>
+          </div>
+          <div class="col-12 col-md-4">
+            <label>Confirm New Password</label>
+            <input type="password" id="confirmPass" placeholder="Confirm new password"/>
+          </div>
+        </div>
+        <div id="passFormErr" style="color:var(--red);font-size:12px;margin-bottom:8px;display:none;"></div>
+        <button class="btn-red" onclick="savePassword()">SAVE CHANGES</button>
+        <button class="btn-outline-gray" style="margin-left:8px;" onclick="togglePasswordForm()">CANCEL</button>
+      </div>
+    </div>
+
+    <!-- RECENT ORDERS -->
+    <div class="section-box">
+      <h5>Recent Orders</h5>
+      <table class="orders-table">
+        <thead>
+          <tr>
+            <th>Order</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="order-details.html" class="order-link">#363</a></td>
+            <td>December 18, 2014</td>
+            <td><span class="status-badge">On hold</span></td>
+            <td>$699.00</td>
+            <td><button class="btn-red" onclick="viewOrder(363)">VIEW ORDERS</button></td>
+          </tr>
+          <tr>
+            <td><a href="order-details.html" class="order-link">#367</a></td>
+            <td>December 18, 2014</td>
+            <td><span class="status-badge">On hold</span></td>
+            <td>$799.00</td>
+            <td><button class="btn-red" onclick="viewOrder(367)">VIEW ORDERS</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- MY ADDRESSES -->
+    <div class="section-box">
+      <h5>My Addresses</h5>
+      <p style="font-size:12px;color:#666;margin-bottom:14px;">The following addresses will be used on the checkout page by default</p>
+      <div class="address-grid">
+        <!-- Billing Address 1 -->
+        <div class="address-card">
+          <h6>Billing Address</h6>
+          <address id="addr1">
+            Farukh Javaid<br>
+            Hottub Spas<br>
+            Plot 10 Tech Society<br>
+            California, CA 20112<br>
+            United State
+          </address>
+          <button class="btn-red" onclick="toggleEditAddr(1)">EDIT ADDRESSES</button>
+          <div class="edit-form" id="editAddr1">
+            <div class="row g-2">
+              <div class="col-12 col-md-6"><label>Full Name</label><input type="text" id="a1name" value="Farukh Javaid"/></div>
+              <div class="col-12 col-md-6"><label>Company</label><input type="text" id="a1company" value="Hottub Spas"/></div>
+              <div class="col-12"><label>Street Address</label><input type="text" id="a1street" value="Plot 10 Tech Society"/></div>
+              <div class="col-12 col-md-6"><label>City</label><input type="text" id="a1city" value="California"/></div>
+              <div class="col-12 col-md-3"><label>State</label><input type="text" id="a1state" value="CA"/></div>
+              <div class="col-12 col-md-3"><label>ZIP</label><input type="text" id="a1zip" value="20112"/></div>
+              <div class="col-12"><label>Country</label><input type="text" id="a1country" value="United State"/></div>
+            </div>
+            <div id="addr1Err" style="color:var(--red);font-size:12px;margin-bottom:6px;display:none;"></div>
+            <button class="btn-red" onclick="saveAddr(1)">SAVE</button>
+            <button class="btn-outline-gray" style="margin-left:8px;" onclick="toggleEditAddr(1)">CANCEL</button>
+          </div>
+        </div>
+        <!-- Billing Address 2 -->
+        <div class="address-card">
+          <h6>Billing Address</h6>
+          <address id="addr2">
+            Farukh Javaid<br>
+            Hottub Spas<br>
+            Plot 10 Tech Society<br>
+            California, CA 20112<br>
+            United State
+          </address>
+          <button class="btn-red" onclick="toggleEditAddr(2)">EDIT ADDRESSES</button>
+          <div class="edit-form" id="editAddr2">
+            <div class="row g-2">
+              <div class="col-12 col-md-6"><label>Full Name</label><input type="text" id="a2name" value="Farukh Javaid"/></div>
+              <div class="col-12 col-md-6"><label>Company</label><input type="text" id="a2company" value="Hottub Spas"/></div>
+              <div class="col-12"><label>Street Address</label><input type="text" id="a2street" value="Plot 10 Tech Society"/></div>
+              <div class="col-12 col-md-6"><label>City</label><input type="text" id="a2city" value="California"/></div>
+              <div class="col-12 col-md-3"><label>State</label><input type="text" id="a2state" value="CA"/></div>
+              <div class="col-12 col-md-3"><label>ZIP</label><input type="text" id="a2zip" value="20112"/></div>
+              <div class="col-12"><label>Country</label><input type="text" id="a2country" value="United State"/></div>
+            </div>
+            <div id="addr2Err" style="color:var(--red);font-size:12px;margin-bottom:6px;display:none;"></div>
+            <button class="btn-red" onclick="saveAddr(2)">SAVE</button>
+            <button class="btn-outline-gray" style="margin-left:8px;" onclick="toggleEditAddr(2)">CANCEL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:right;">
+      <a href="login.html" style="color:#555;font-size:12px;text-decoration:none;"><i class="fa fa-sign-out-alt"></i> Sign Out</a>
+    </div>
+  </div>
+</div>
+
+<!-- BRANDS STRIP -->
+<div class="brands-strip">
+  <div class="row align-items-center g-3">
+    <div class="col-6 col-md-3"><div class="brand-save"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p style="font-size:9px;font-weight:700;color:#333;">HUGE DISCOUNTS  SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;color:#1a78b4;font-weight:700;">OCEANIC<em style="font-style:italic;color:#6ab;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#e95c2e;font-weight:700;">Caldera<span style="color:#333;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#3a7d44;font-weight:700;">Island<span style="color:#333;font-weight:400;">Spas</span><br><small style="font-size:9px;color:#888;">BY ARTESIAN</small></span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="row g-4">
+    <div class="col-12 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:6px;">yoursitenname.com</p>
+      <p style="font-size:12px;margin-bottom:6px;">CALL 24/7: 888‑201‑8899</p>
+      <p style="font-size:12px;margin-bottom:6px;">Your Address:<br>Street<br>State & Zip Code<br>City & Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitenname.com</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="shopping-cart.html">View Cart</a></li>
+        <li><a href="#">My Wishlist</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>SIGNUP FOR A NEWSLETTER</h6>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address"/>
+        <button style="background:var(--red);color:#fff;border:none;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;">Subscribe</button>
+      </div>
+      <p style="font-size:11px;color:#888;margin-top:14px;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap;">
+        <span style="background:#1a1a8c;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">VISA</span>
+        <span style="background:#eb001b;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">MC</span>
+        <span style="background:#2671b2;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">AMEX</span>
+        <span style="background:#003087;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="js/my_account.js"></script>
+</body>
+</html>

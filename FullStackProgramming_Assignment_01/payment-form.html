@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Secure Checkouts – HotSpring Portable Spas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/payment-form.css"/>
+</head>
+<body>
+<div class="topbar">
+  <span>Call for Customer support: <span class="phone">020 38989565</span></span>
+  <div class="topbar-right">
+    <a href="my_account.html">My Account</a><a href="#">Wishlist</a><a href="payment-form.html">To Checkout</a>
+  </div>
+</div>
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-brand">HOTSPRING<sup>®</sup></span>
+    <span class="logo-tagline">Portable Spas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="shopping-cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> My Cart: &nbsp;0 Item(s)</a>
+    <select style="border:1px solid #ccc;padding:5px 8px;font-size:12px;"><option>▼</option></select>
+  </div>
+</header>
+<nav class="main-nav"><ul>
+  <li><a href="index.html">HOME</a></li><li><a href="category.html">PRODUCTS</a></li>
+  <li><a href="#">SPECIAL OFFERS</a></li><li><a href="#">CUSTOM</a></li>
+</ul></nav>
+<div class="red-bar">
+  <div class="red-bar-nav"><a href="category.html">CATEGORY</a><a href="#">BRAND</a><a href="about-us.html">INFO</a></div>
+  <div class="search-wrap"><input type="text" placeholder="Search"/><button><i class="fa fa-search"></i> SEARCH</button></div>
+</div>
+
+<div class="page-ocean">
+  <div class="breadcrumb-strip">
+    <div style="max-width:940px;margin:0 auto;">
+      <a href="index.html">Home</a><span class="sep">›</span><span>Payments</span>
+    </div>
+  </div>
+
+  <div class="main-card">
+    <h1>Secure Checkouts</h1>
+    <div class="pay-header">Payment Information</div>
+
+    <div class="order-success" id="orderSuccess">
+      <i class="fa fa-check-circle" style="color:#28a745;font-size:22px;flex-shrink:0;"></i>
+      <span>Order placed! <a href="order-details.html" style="color:#155724;font-weight:700;">View Order Details →</a></span>
+    </div>
+
+    <form id="cform" novalidate onsubmit="placeOrder(event)">
+    <div class="checkout-grid">
+
+      <!-- LEFT: Billing -->
+      <div class="col-left">
+        <div class="step-heading"><span class="step-num">Step 1.</span>&nbsp;<span class="step-title">Billing Address</span></div>
+
+        <div class="fr"><label class="fl">First Name <span class="star">*</span></label><div><input class="fi" id="b_fn" oninput="clr('b_fn')"/><div class="emsg" id="b_fnE">Required</div></div></div>
+        <div class="fr"><label class="fl">Last Name <span class="star">*</span></label><div><input class="fi" id="b_ln" oninput="clr('b_ln')"/><div class="emsg" id="b_lnE">Required</div></div></div>
+        <div class="fr"><label class="fl">Email <span class="star">*</span></label><div><input type="email" class="fi" id="b_em" oninput="clr('b_em')"/><div class="emsg" id="b_emE">Valid email required</div></div></div>
+        <div class="fr"><label class="fl">Phone <span class="star">*</span></label><div><input type="tel" class="fi" id="b_ph" oninput="clr('b_ph')"/><div class="emsg" id="b_phE">Required</div></div></div>
+        <div class="fr"><label class="fl">Address <span class="star">*</span></label><div><input class="fi" id="b_ad" oninput="clr('b_ad')"/><div class="emsg" id="b_adE">Required</div></div></div>
+        <div class="fr">
+          <label class="fl">City <span class="star">*</span></label>
+          <select class="fi-sel" id="b_ci"><option>New York</option><option>Los Angeles</option><option>Chicago</option><option>Houston</option></select>
+        </div>
+        <div class="fr"><label class="fl">State <span class="star">*</span></label><input class="fi" id="b_st" value="New York"/></div>
+        <div class="fr"><label class="fl">Zip Code <span class="star">*</span></label><div><input class="fi" id="b_zp" maxlength="10" oninput="clr('b_zp')"/><div class="emsg" id="b_zpE">Required</div></div></div>
+        <div class="fr">
+          <label class="fl">Country <span class="star">*</span></label>
+          <select class="fi-sel"><option>United States</option><option>Canada</option><option>United Kingdom</option></select>
+        </div>
+
+        <label class="ship-toggle"><input type="checkbox" id="shipChk" onchange="toggleShip(this)"/> Ship to a different address</label>
+
+        <div class="ship-addr" id="shipAddr">
+          <div class="ship-addr-title">Shipping Address</div>
+          <div class="fr"><label class="fl">First Name <span class="star">*</span></label><input class="fi" id="s_fn"/></div>
+          <div class="fr"><label class="fl">Last Name <span class="star">*</span></label><input class="fi" id="s_ln"/></div>
+          <div class="fr"><label class="fl">Email <span class="star">*</span></label><input type="email" class="fi" id="s_em"/></div>
+          <div class="fr"><label class="fl">Phone <span class="star">*</span></label><input type="tel" class="fi" id="s_ph"/></div>
+          <div class="fr"><label class="fl">Address <span class="star">*</span></label><input class="fi" id="s_ad"/></div>
+          <div class="fr"><label class="fl">City <span class="star">*</span></label><select class="fi-sel"><option>New York</option><option>Los Angeles</option></select></div>
+          <div class="fr"><label class="fl">State <span class="star">*</span></label><input class="fi" value="New York"/></div>
+          <div class="fr"><label class="fl">Zip Code <span class="star">*</span></label><input class="fi" id="s_zp" maxlength="10"/></div>
+          <div class="fr"><label class="fl">Country <span class="star">*</span></label><select class="fi-sel"><option>United States</option><option>Canada</option></select></div>
+        </div>
+      </div><!-- /col-left -->
+
+      <!-- RIGHT: Card + Review -->
+      <div class="col-right">
+        <div class="step-heading"><span class="step-num">Step 2.</span>&nbsp;<span class="step-title">Card Details</span></div>
+
+        <div class="cfr"><label class="fl">Card Type <span class="star">*</span></label><div><input class="fi" id="c_ty" placeholder="Master Card" oninput="clr('c_ty')"/><div class="emsg" id="c_tyE">Required</div></div></div>
+        <div class="cfr"><label class="fl">Card Number <span class="star">*</span></label><div><input class="fi" id="c_nu" placeholder="1234 5678 9123 4567" maxlength="19" oninput="fmtCard(this);clr('c_nu')"/><div class="emsg" id="c_nuE">Valid 16-digit number required</div></div></div>
+        <div class="cfr">
+          <label class="fl">Expiration <span class="star">*</span></label>
+          <div class="exp-wrap">
+            <select class="fi-sel"><option>01</option><option>02</option><option>03</option><option>04</option><option>05</option><option>06</option><option>07</option><option>08</option><option>09</option><option>10</option><option>11</option><option>12</option></select>
+            <select class="fi-sel"><option>December</option><option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option><option>July</option><option>August</option><option>September</option><option>October</option><option>November</option></select>
+            <select class="fi-sel" style="max-width:68px;"><option>2015</option><option>2016</option><option>2017</option><option>2018</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option></select>
+          </div>
+        </div>
+        <div class="cfr"><label class="fl">Secure Code <span class="star">*</span></label><div><input type="password" class="fi" id="c_cv" maxlength="4" placeholder="•••" oninput="clr('c_cv')"/><div class="emsg" id="c_cvE">3–4 digit CVV required</div></div></div>
+
+        <div class="card-note"><i class="fa fa-info-circle" style="color:#bbb;"></i> Note: Please ensure the billing address you enter matches your credit card billing address.</div>
+
+        <label class="tc-check"><input type="checkbox" id="tcChk"/> I Accept <a href="terms-and-conditions.html">terms and Conditions</a></label>
+        <div class="emsg" id="tcE" style="margin-left:0;margin-top:4px;">You must accept the terms and conditions.</div>
+
+        <hr class="divider"/>
+        <div class="step-heading"><span class="step-num">Step 3.</span>&nbsp;<span class="step-title">Review Your Order</span></div>
+
+        <table class="rtable">
+          <thead><tr><th>Item name</th><th>price</th><th>Quantity</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>XS SCYVA X SERIES 119</td><td>$ 699</td><td>1000</td><td>12000</td></tr>
+          </tbody>
+        </table>
+
+        <div class="total-strip"><span class="lbl">Total with shipping:</span><span class="val">$ 699.00</span></div>
+
+        <div class="place-row">
+          <i class="fa fa-lock lock-ico"></i>
+          <button type="submit" class="btn-place">Place Your Order <i class="fa fa-chevron-right"></i></button>
+        </div>
+      </div><!-- /col-right -->
+    </div><!-- /checkout-grid -->
+    </form>
+
+    <div class="bottom-bar">
+      <div class="summary-txt">Cart summary (2 items) Total:<strong>$21.00</strong></div>
+      <div style="display:flex;gap:10px;">
+        <a href="shopping-cart.html" class="btn-back"><i class="fa fa-arrow-left"></i> Continue shopping</a>
+        <button type="button" class="btn-go" onclick="document.getElementById('cform').dispatchEvent(new Event('submit',{cancelable:true,bubbles:true}))"><i class="fa fa-lock"></i> Proceed to checkout</button>
+      </div>
+    </div>
+  </div><!-- /main-card -->
+</div><!-- /page-ocean -->
+
+<!-- BRANDS -->
+<div class="brands-row">
+  <div class="row align-items-center g-3" style="max-width:940px;margin:0 auto;">
+    <div class="col-6 col-md-3"><div class="brand-save-box"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p>HUGE DISCOUNTS · SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:24px;color:#1876b8;font-weight:700;">OCEANIC<em style="font-style:italic;color:#88b8d0;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;"><span style="color:#e95c2e;">Caldera</span><span style="color:#444;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#3a7d44;">Island</span><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#555;">Spas</span><br><small style="font-size:9px;color:#999;">BY ARTESIAN</small></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="row g-4" style="max-width:1100px;margin:0 auto;">
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:14px;">yoursitename.com<br><strong>CALL 24/7: 888-201-8899</strong><br>Your Address · Street<br>State &amp; Zip · City &amp; Country<br>Email: servicemail@yoursitename.com</p>
+      <div class="foot-social"><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-google-plus-g"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a></div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul><li><a href="about-us.html">About Us</a></li><li><a href="#">Customer Service</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Site Map</a></li><li><a href="#">Search Terms</a></li><li><a href="contact-us.html">Contact Us</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul><li><a href="login.html">Sign In</a></li><li><a href="shopping-cart.html">View Cart</a></li><li><a href="#">My Wishlist</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>SIGNUP FOR A NEWS LETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="foot-newsletter"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+      <p style="font-size:11px;color:#777;margin-top:14px;font-weight:700;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;">
+        <span class="pay-badge" style="background:#1a1a8c;color:#fff;">VISA</span>
+        <span class="pay-badge" style="background:#c00;color:#fff;">MC</span>
+        <span class="pay-badge" style="background:#2671b2;color:#fff;">AMEX</span>
+        <span class="pay-badge" style="background:#fff;color:#003087;border:1px solid #003087;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+
+<script src="js/payment-form.js"></script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Billing Address – HotSpring Portable Spas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/edit_billing_address.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Call for Customer support: <span class="phone">020 38989565</span></span>
+  <div class="topbar-right">
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-brand">HOTSPRING<sup>®</sup></span>
+    <span class="logo-tagline">Portable Spas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="shopping-cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> My Cart: &nbsp;0 Item(s)</a>
+    <select style="border:1px solid #ccc;padding:5px 8px;font-size:12px;cursor:pointer;"><option>▼</option></select>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- RED BAR -->
+<div class="red-bar">
+  <div class="red-bar-nav">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <div class="search-wrap">
+    <input type="text" placeholder="Search"/>
+    <button type="button"><i class="fa fa-search"></i> SEARCH</button>
+  </div>
+</div>
+
+<!-- PAGE BG -->
+<div class="page-ocean">
+  <div class="breadcrumb-strip">
+    <div style="max-width:840px;margin:0 auto;">
+      <a href="index.html">Home</a><span class="sep">›</span>
+      <a href="my_account.html">User Account</a><span class="sep">›</span>
+      <a href="my_account.html">My Account</a><span class="sep">›</span>
+      <span>Edit Billing Address</span>
+    </div>
+  </div>
+
+  <div class="addr-card">
+    <div class="card-header-bar">
+      <h1>Edit Billing Address</h1>
+      <!-- Step indicator -->
+      <div class="steps">
+        <div class="step done">
+          <div class="step-num"><i class="fa fa-check" style="font-size:11px;"></i></div>
+          <span class="step-label">My Account</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step active">
+          <div class="step-num">2</div>
+          <span class="step-label">Billing Address</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <span class="step-label">Shipping Address</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <span class="step-label">Done</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body-pad">
+      <p class="form-intro">Please fill the form below to update your Profile details.</p>
+      <p class="req-note">*Required Fields</p>
+
+      <form id="billingForm" novalidate onsubmit="submitAddr(event,'billing')">
+
+        <!-- First Name -->
+        <div class="field-row">
+          <label class="field-label">First Name <span class="star">*</span></label>
+          <div>
+            <input type="text" class="field-input" id="b_firstName" value="Farukh" oninput="clearF('b_firstName')"/>
+            <div class="err-msg" id="b_firstNameErr">First name is required.</div>
+          </div>
+        </div>
+
+        <!-- Last Name -->
+        <div class="field-row">
+          <label class="field-label">Last Name <span class="star">*</span></label>
+          <div>
+            <input type="text" class="field-input" id="b_lastName" value="Javaid" oninput="clearF('b_lastName')"/>
+            <div class="err-msg" id="b_lastNameErr">Last name is required.</div>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="field-row">
+          <label class="field-label">Email <span class="star">*</span></label>
+          <div>
+            <input type="email" class="field-input" id="b_email" value="farukh@example.com" oninput="clearF('b_email')"/>
+            <div class="err-msg" id="b_emailErr">Please enter a valid email address.</div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="field-row">
+          <label class="field-label">Phone <span class="star">*</span></label>
+          <div>
+            <input type="tel" class="field-input" id="b_phone" value="888-201-8899" oninput="clearF('b_phone')"/>
+            <div class="err-msg" id="b_phoneErr">Phone number is required.</div>
+            <div class="input-hint">Format: 888-123-4567</div>
+          </div>
+        </div>
+
+        <!-- Company (optional) -->
+        <div class="field-row">
+          <label class="field-label">Company</label>
+          <input type="text" class="field-input" id="b_company" value="Hottub Spas"/>
+        </div>
+
+        <!-- Address -->
+        <div class="field-row">
+          <label class="field-label">Address <span class="star">*</span></label>
+          <div>
+            <input type="text" class="field-input" id="b_address" value="Plot 10 Tech Society" oninput="clearF('b_address')"/>
+            <div class="err-msg" id="b_addressErr">Street address is required.</div>
+          </div>
+        </div>
+
+        <!-- City -->
+        <div class="field-row">
+          <label class="field-label">City <span class="star">*</span></label>
+          <div>
+            <input type="text" class="field-input" id="b_city" value="California" oninput="clearF('b_city')"/>
+            <div class="err-msg" id="b_cityErr">City is required.</div>
+          </div>
+        </div>
+
+        <!-- State -->
+        <div class="field-row">
+          <label class="field-label">State <span class="star">*</span></label>
+          <div>
+            <select class="field-select" id="b_state">
+              <option>-- Select State --</option>
+              <option selected>California</option>
+              <option>New York</option><option>Texas</option><option>Florida</option>
+              <option>Illinois</option><option>Washington</option><option>Other</option>
+            </select>
+            <div class="err-msg" id="b_stateErr">Please select a state.</div>
+          </div>
+        </div>
+
+        <!-- Zip Code -->
+        <div class="field-row">
+          <label class="field-label">Zip Code <span class="star">*</span></label>
+          <div>
+            <input type="text" class="field-input" id="b_zip" value="20112" maxlength="10" oninput="clearF('b_zip')"/>
+            <div class="err-msg" id="b_zipErr">Zip code is required.</div>
+          </div>
+        </div>
+
+        <!-- Country -->
+        <div class="field-row">
+          <label class="field-label">Country <span class="star">*</span></label>
+          <div>
+            <select class="field-select" id="b_country">
+              <option>-- Select Country --</option>
+              <option selected>United States</option>
+              <option>Canada</option><option>United Kingdom</option>
+              <option>Australia</option><option>Other</option>
+            </select>
+            <div class="err-msg" id="b_countryErr">Please select a country.</div>
+          </div>
+        </div>
+
+        <!-- Same as shipping -->
+        <label class="checkbox-row">
+          <input type="checkbox" id="sameAsShipping"/>
+          Use this address as my shipping address too
+        </label>
+
+        <!-- Buttons -->
+        <div class="btn-row">
+          <button type="submit" class="btn-update">Update Address</button>
+          <a href="my_account.html" class="btn-cancel">Cancel</a>
+          <a href="edit-shipping-address.html" style="font-size:12px;color:var(--red);text-decoration:none;margin-left:8px;">Skip to Shipping Address →</a>
+        </div>
+
+        <div class="success-bar" id="billingSuccess">
+          <i class="fa fa-check-circle" style="color:#28a745;font-size:20px;flex-shrink:0;"></i>
+          <span>Billing address updated successfully! <a href="my_account.html" style="color:#155724;font-weight:700;">Return to My Account</a></span>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div><!-- /page-ocean -->
+
+<!-- BRANDS -->
+<div class="brands-row">
+  <div class="row align-items-center g-3" style="max-width:840px;margin:0 auto;">
+    <div class="col-6 col-md-3"><div class="brand-save-box"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p>HUGE DISCOUNTS · SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:24px;color:#1876b8;font-weight:700;">OCEANIC<em style="font-style:italic;color:#88b8d0;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;"><span style="color:#e95c2e;">Caldera</span><span style="color:#444;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#3a7d44;">Island</span><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#555;">Spas</span><br><small style="font-size:9px;color:#999;">BY ARTESIAN</small></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="row g-4" style="max-width:1100px;margin:0 auto;">
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:5px;">yoursitename.com</p>
+      <p style="font-size:12px;margin-bottom:5px;font-weight:700;">CALL 24/7: 888 - 201 - 8899</p>
+      <p style="font-size:12px;margin-bottom:5px;">Your Address:<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitename.com</p>
+      <div class="foot-social">
+        <a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li><li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li><li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li><li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul><li><a href="login.html">Sign In</a></li><li><a href="shopping-cart.html">View Cart</a></li><li><a href="#">My Wishlist</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>SIGNUP FOR A NEWS LETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="foot-newsletter"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+      <p style="font-size:11px;color:#777;margin-top:14px;font-weight:700;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;">
+        <span class="pay-badge" style="background:#1a1a8c;color:#fff;">VISA</span>
+        <span class="pay-badge" style="background:#c00;color:#fff;">MC</span>
+        <span class="pay-badge" style="background:#2671b2;color:#fff;">AMEX</span>
+        <span class="pay-badge" style="background:#fff;color:#003087;border:1px solid #003087;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="js/edit_billing_address.js"></script>
+</body>
+</html>

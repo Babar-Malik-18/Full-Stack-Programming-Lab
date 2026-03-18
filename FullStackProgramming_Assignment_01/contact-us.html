@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – HotSpring Portable Spas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/contact-us.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Call for Customer support: <span class="phone">020 38989565</span></span>
+  <div class="topbar-right">
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-brand">HOTSPRING<sup>®</sup></span>
+    <span class="logo-tagline">Portable Spas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="shopping-cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> My Cart: &nbsp;0 Item(s)</a>
+    <select style="border:1px solid #ccc;padding:5px 8px;font-size:12px;cursor:pointer;"><option>▼</option></select>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- RED BAR -->
+<div class="red-bar">
+  <div class="red-bar-nav">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <div class="search-wrap">
+    <input type="text" placeholder="Search"/>
+    <button type="button"><i class="fa fa-search"></i> SEARCH</button>
+  </div>
+</div>
+
+<!-- PAGE BG -->
+<div class="page-ocean">
+  <div class="breadcrumb-strip">
+    <div style="max-width:940px;margin:0 auto;">
+      <a href="index.html">Home</a><span class="sep">›</span>
+      <a href="#">Customer Support</a><span class="sep">›</span>
+      <span>Contact Us</span>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <!-- Hero bar -->
+    <div class="contact-hero">
+      <h1>Contact Us</h1>
+      <div class="call-badge"><i class="fa fa-phone"></i> Call Us: 020 78989845</div>
+    </div>
+
+    <div class="contact-body">
+      <!-- Info boxes -->
+      <div class="contact-cols">
+        <div class="info-box">
+          <div class="icon-circle"><i class="fa fa-headset"></i></div>
+          <h5>Online Sales &amp; Customer Support</h5>
+          <p>Available Mon–Fri<br>9:00 AM – 6:00 PM EST<br><a href="mailto:support@hotspring.com">support@hotspring.com</a></p>
+        </div>
+        <div class="info-box">
+          <div class="icon-circle"><i class="fa fa-store"></i></div>
+          <h5>Retail Store Location</h5>
+          <p>5000N. Ford Avenue<br>New York, NY 20145<br><a href="tel:8881231234">888.123.1234</a></p>
+        </div>
+        <div class="info-box">
+          <div class="icon-circle"><i class="fa fa-tools"></i></div>
+          <h5>Services</h5>
+          <p>Installation, maintenance &amp; repair.<br>Call us to schedule:<br><a href="tel:02038989565">020 38989565</a></p>
+        </div>
+      </div>
+
+      <div class="form-loc-grid">
+        <!-- Contact Form -->
+        <div>
+          <div class="section-title">Contact Our Customer Support</div>
+          <p style="font-size:12px;color:#666;margin-bottom:18px;">To create a new account, please fill in the required information below. Passwords are case sensitive and must be 6 to 20 characters long.</p>
+
+          <form id="contactForm" novalidate onsubmit="submitContact(event)">
+            <div class="row g-2">
+              <div class="col-12 col-sm-6">
+                <div class="form-field">
+                  <label>First Name <span class="star">*</span></label>
+                  <input type="text" class="form-input" id="cfFirstName" placeholder="" oninput="clearFieldErr('cfFirstName')"/>
+                  <div class="err-msg" id="cfFirstNameErr"><i class="fa fa-exclamation-circle"></i> First name is required.</div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6">
+                <div class="form-field">
+                  <label>Subject <span class="star">*</span></label>
+                  <input type="text" class="form-input" id="cfSubject" placeholder="" oninput="clearFieldErr('cfSubject')"/>
+                  <div class="err-msg" id="cfSubjectErr"><i class="fa fa-exclamation-circle"></i> Subject is required.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-field">
+                  <label>Email <span class="star">*</span></label>
+                  <input type="email" class="form-input" id="cfEmail" placeholder="" oninput="clearFieldErr('cfEmail')"/>
+                  <div class="err-msg" id="cfEmailErr"><i class="fa fa-exclamation-circle"></i> Please enter a valid email address.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-field">
+                  <label>Your Message</label>
+                  <textarea class="form-input form-textarea" id="cfMessage" placeholder="Type your message here…"></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-submit">SUBMIT</button>
+              </div>
+            </div>
+
+            <div class="success-msg" id="cfSuccess">
+              <i class="fa fa-check-circle" style="color:#28a745;font-size:20px;flex-shrink:0;"></i>
+              <span>Thank you! Your message has been sent. We'll get back to you within 24 hours.</span>
+            </div>
+          </form>
+        </div>
+
+        <!-- Store Locations -->
+        <div class="store-col">
+          <div class="section-title">Retail Store Location</div>
+
+          <div class="store-card">
+            <h6><i class="fa fa-map-marker-alt"></i> Hottub Store – Location 1</h6>
+            <p>5000N. Ford Avenue<br>New York, NY 20145<br><a href="tel:8881231234">888.123.1234</a></p>
+          </div>
+
+          <div class="store-card">
+            <h6><i class="fa fa-map-marker-alt"></i> Hottub Store – Location 2</h6>
+            <p>5000N. Ford Avenue<br>New York, NY 20145<br><a href="tel:8881231234">888.123.1234</a></p>
+          </div>
+
+          <div class="map-placeholder">
+            <i class="fa fa-map"></i>
+            <span>Interactive Map</span>
+          </div>
+
+          <!-- Quick info -->
+          <div style="margin-top:16px;padding:14px;background:#f8f8f8;border:1px solid #eee;border-radius:2px;">
+            <div style="font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;color:#333;margin-bottom:8px;">Business Hours</div>
+            <div style="font-size:12px;color:#555;line-height:2;">
+              Mon – Fri: &nbsp;9:00 AM – 7:00 PM<br>
+              Saturday: &nbsp;10:00 AM – 5:00 PM<br>
+              Sunday: &nbsp;&nbsp;&nbsp;Closed
+            </div>
+          </div>
+        </div>
+      </div><!-- /form-loc-grid -->
+    </div><!-- /contact-body -->
+  </div><!-- /contact-card -->
+</div><!-- /page-ocean -->
+
+<!-- BRANDS -->
+<div class="brands-row">
+  <div class="row align-items-center g-3" style="max-width:940px;margin:0 auto;">
+    <div class="col-6 col-md-3"><div class="brand-save-box"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p>HUGE DISCOUNTS · SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:24px;color:#1876b8;font-weight:700;">OCEANIC<em style="font-style:italic;color:#88b8d0;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;"><span style="color:#e95c2e;">Caldera</span><span style="color:#444;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#3a7d44;">Island</span><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#555;">Spas</span><br><small style="font-size:9px;color:#999;">BY ARTESIAN</small></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="row g-4" style="max-width:1100px;margin:0 auto;">
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:5px;">yoursitename.com</p>
+      <p style="font-size:12px;margin-bottom:5px;font-weight:700;">CALL 24/7: 888 - 201 - 8899</p>
+      <p style="font-size:12px;margin-bottom:5px;">Your Address:<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitename.com</p>
+      <div class="foot-social">
+        <a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li><li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li><li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li><li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul><li><a href="login.html">Sign In</a></li><li><a href="shopping-cart.html">View Cart</a></li><li><a href="#">My Wishlist</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>SIGNUP FOR A NEWS LETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="foot-newsletter"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+      <p style="font-size:11px;color:#777;margin-top:14px;font-weight:700;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;">
+        <span class="pay-badge" style="background:#1a1a8c;color:#fff;">VISA</span>
+        <span class="pay-badge" style="background:#c00;color:#fff;">MC</span>
+        <span class="pay-badge" style="background:#2671b2;color:#fff;">AMEX</span>
+        <span class="pay-badge" style="background:#fff;color:#003087;border:1px solid #003087;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="js/contact-us.js"></script>
+</body>
+</html>

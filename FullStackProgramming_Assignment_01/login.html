@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotSpring Portable Spas – Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Call for Customer support: <a href="tel:02038989565" class="phone">020 38989565</a></span>
+  <div>
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo">
+    <span class="logo-text">HOTSPRING<sup style="font-size:10px;">®</sup></span>
+    <span class="logo-sub">Portable Spas</span>
+  </a>
+  <div class="cart-area">
+    <a href="shopping-cart.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> My Cart: 0 Item(s)</a>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- SEARCH BAR -->
+<div class="search-bar">
+  <div class="nav-links">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <form class="search-form" onsubmit="return false;">
+    <input type="text" placeholder="Search"/>
+    <button type="submit">SEARCH</button>
+  </form>
+</div>
+
+<!-- PAGE BG -->
+<div class="page-bg">
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb-bar" style="max-width:900px;margin:0 auto;">
+    <a href="index.html">Home</a><span>›</span><span>My Account</span>
+  </div>
+
+  <!-- LOGIN CONTAINER -->
+  <div class="login-container">
+    <h2>Login Or Create Account</h2>
+    <div class="row g-4">
+      <!-- LEFT: LOGIN FORM -->
+      <div class="col-12 col-md-6">
+        <div class="login-box">
+          <h5>User Login Details</h5>
+          <p style="font-size:12px;margin-bottom:8px;">Please sign in below with your login information.</p>
+          <p style="font-size:11px;color:#888;margin-bottom:16px;">*Required Fields</p>
+          <form id="loginForm" novalidate>
+            <div style="margin-bottom:14px;">
+              <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+                <label class="form-label-sm" style="min-width:80px;">Email <span class="required-star">*</span></label>
+                <input type="email" id="loginEmail" class="form-control-sm2" placeholder=""/>
+              </div>
+              <div id="emailErr" class="error-msg" style="margin-left:86px;">Please enter a valid email address.</div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <label class="form-label-sm" style="min-width:80px;">Password <span class="required-star">*</span></label>
+                <input type="password" id="loginPassword" class="form-control-sm2" placeholder=""/>
+              </div>
+              <div id="passErr" class="error-msg" style="margin-left:86px;">Password is required.</div>
+            </div>
+            <div style="margin-bottom:16px;font-size:12px;">
+              <label><input type="checkbox" id="rememberMe" style="margin-right:6px;"/>Remember me th next time I visit</label>
+            </div>
+            <div style="display:flex;align-items:center;gap:16px;">
+              <button type="submit" class="btn-red" onclick="return validateLogin()">SIGN IN</button>
+              <a href="forget_password.html" class="forgot-link">Forgot your password?</a>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- RIGHT: NEW CUSTOMER -->
+      <div class="col-12 col-md-6">
+        <div class="login-box" style="background:#f9f9f9;">
+          <h5>New Customer</h5>
+          <p style="font-size:12px;margin-bottom:10px;">As a registered Att.com customer you can:</p>
+          <ul class="new-customer-features">
+            <li>Store billing &amp; shipping information</li>
+            <li>Check your order status</li>
+            <li>Track your delivery Status</li>
+            <li>View your order history</li>
+          </ul>
+          <div style="margin-top:20px;">
+            <a href="register.html" class="btn-outline-red">CREATE NEW ACCOUNT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RELATED PRODUCTS -->
+  <div class="related-section">
+    <h5>Customers Who Viewed This Item Also</h5>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <button class="carousel-ctrl" onclick="scrollRelated(-1)">&#8249;</button>
+      <div class="related-slider" id="relatedSlider">
+        <div class="related-item"><div class="related-card"><img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=200&q=80" alt=""/><div><div class="price">$2,549.15</div><div class="name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="model">B22CS30SNS5</div></div></div></div>
+        <div class="related-item"><div class="related-card"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=200&q=80" alt=""/><div><div class="price">$2,549.15</div><div class="name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="model">B22CS30SNS5</div></div></div></div>
+        <div class="related-item"><div class="related-card"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&q=80" alt=""/><div><div class="price">$2,549.15</div><div class="name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="model">B22CS30SNS5</div></div></div></div>
+        <div class="related-item"><div class="related-card"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=200&q=80" alt=""/><div><div class="price">$2,549.15</div><div class="name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="model">B22CS30SNS5</div></div></div></div>
+      </div>
+      <button class="carousel-ctrl" onclick="scrollRelated(1)">&#8250;</button>
+    </div>
+  </div>
+</div>
+
+<!-- BRANDS STRIP -->
+<div class="brands-strip">
+  <div class="row align-items-center g-3">
+    <div class="col-6 col-md-3"><div class="brand-save"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p style="font-size:9px;font-weight:700;color:#333;">HUGE DISCOUNTS  SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;color:#1a78b4;font-weight:700;">OCEANIC<em style="font-style:italic;color:#6ab;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#e95c2e;font-weight:700;">Caldera<span style="color:#333;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#3a7d44;font-weight:700;">Island<span style="color:#333;font-weight:400;">Spas</span><br><small style="font-size:9px;color:#888;">BY ARTESIAN</small></span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="row g-4">
+    <div class="col-12 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:6px;">yoursitenname.com</p>
+      <p style="font-size:12px;margin-bottom:6px;">CALL 24/7: 888‑201‑8899</p>
+      <p style="font-size:12px;margin-bottom:6px;">Your Address:<br>Street<br>State & Zip Code<br>City & Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitenname.com</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="shopping-cart.html">View Cart</a></li>
+        <li><a href="#">My Wishlist</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>SIGNUP FOR A NEWSLETTER</h6>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address"/>
+        <button style="background:var(--red);color:#fff;border:none;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;">Subscribe</button>
+      </div>
+      <p style="font-size:11px;color:#888;margin-top:14px;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap;">
+        <span style="background:#1a1a8c;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">VISA</span>
+        <span style="background:#eb001b;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">MC</span>
+        <span style="background:#2671b2;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">AMEX</span>
+        <span style="background:#003087;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="js/login.js"></script>
+</body>
+</html>

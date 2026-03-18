@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Category – HotSpring Portable Spas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/category.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Call for Customer support: <span class="phone">020 38989565</span></span>
+  <div class="topbar-right">
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-brand">HOTSPRING<sup>®</sup></span>
+    <span class="logo-tagline">Portable Spas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="shopping-cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> My Cart: &nbsp;<span id="cartCount">0</span> Item(s)</a>
+    <select style="border:1px solid #ccc;padding:5px 8px;font-size:12px;cursor:pointer;"><option>▼</option></select>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- RED BAR -->
+<div class="red-bar">
+  <div class="red-bar-nav">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <div class="search-wrap">
+    <input type="text" placeholder="Search"/>
+    <button type="button"><i class="fa fa-search"></i> SEARCH</button>
+  </div>
+</div>
+
+<!-- PAGE BG -->
+<div class="page-ocean">
+  <div class="breadcrumb-strip">
+    <div style="max-width:1000px;margin:0 auto;">
+      <a href="index.html">Home</a><span class="sep">›</span><span>Category</span>
+    </div>
+  </div>
+
+  <div class="cat-wrapper">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Shopping Options</div>
+
+      <!-- Seating Capacity -->
+      <div class="filter-group">
+        <div class="filter-heading open" onclick="toggleFilter(this)">
+          SEATING CAPACITY <span class="toggle-icon fa fa-chevron-down"></span>
+        </div>
+        <div class="filter-body open">
+          <a class="filter-link" onclick="addFilter('2–4 People',this)">2 - 4 PEOPLE</a>
+          <a class="filter-link" onclick="addFilter('5–7 People',this)">5 - 7 PEOPLE</a>
+          <a class="filter-link" onclick="addFilter('8+ People',this)">8 PEOPLE AND MORE</a>
+        </div>
+      </div>
+
+      <!-- Choose Sizes -->
+      <div class="filter-group">
+        <div class="filter-heading open" onclick="toggleFilter(this)">
+          CHOOSE SIZES <span class="toggle-icon fa fa-chevron-down"></span>
+        </div>
+        <div class="filter-body open">
+          <a class="filter-link" onclick="addFilter('5–6 ft',this)">5 - 6 FEET LONG</a>
+          <a class="filter-link" onclick="addFilter('6–7 ft',this)">6 - 7 FEET LONG</a>
+          <a class="filter-link" onclick="addFilter('7–8 ft',this)">7 - 8 FEET LONG</a>
+          <a class="filter-link" onclick="addFilter('8+ ft',this)">8 FEET TO LARGE SIZE</a>
+        </div>
+      </div>
+
+      <!-- Spas by Style -->
+      <div class="filter-group">
+        <div class="filter-heading open" onclick="toggleFilter(this)">
+          SPAS BY STYLE <span class="toggle-icon fa fa-chevron-down"></span>
+        </div>
+        <div class="filter-body open">
+          <a class="filter-link" onclick="addFilter('Plug & Play',this)">PLUG AND PLAY 110 VOLT</a>
+          <a class="filter-link" onclick="addFilter('TV Stereo',this)">TV - STEREO SPAS</a>
+          <a class="filter-link" onclick="addFilter('Corner Spas',this)">CORNER SPAS</a>
+          <a class="filter-link" onclick="addFilter('Portable',this)">PORTABLE SPAS</a>
+          <a class="filter-link" onclick="addFilter('Deeper Spas',this)">DEEPER SPAS</a>
+        </div>
+      </div>
+
+      <!-- Price Ranges -->
+      <div class="filter-group">
+        <div class="filter-heading open" onclick="toggleFilter(this)">
+          PRICE RANGES FROM <span class="toggle-icon fa fa-chevron-down"></span>
+        </div>
+        <div class="filter-body open">
+          <a class="filter-link" onclick="addFilter('Under $3,000',this)">UNDER $3,000</a>
+          <a class="filter-link" onclick="addFilter('$3k–$4k',this)">$3,000 TO $4,000</a>
+          <a class="filter-link" onclick="addFilter('$4k–$5k',this)">$4,000 TO $5,000</a>
+          <a class="filter-link" onclick="addFilter('$5k–$6k',this)">$5,000 TO $6,000</a>
+          <a class="filter-link" onclick="addFilter('$6,000+',this)">$6,000 +</a>
+        </div>
+      </div>
+
+      <!-- Top Products -->
+      <div class="sidebar-title" style="margin-top:2px;">Top Product Listing</div>
+      <div style="padding:12px 14px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;cursor:pointer;" onclick="window.location='product_description.html'">
+          <img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=80&q=70" style="width:44px;height:44px;object-fit:cover;border:1px solid #eee;" alt=""/>
+          <div><div style="font-size:11px;font-weight:700;color:#333;">XS SCYBA X Series</div><div style="color:var(--red);font-size:12px;font-weight:700;">$500.00</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;cursor:pointer;" onclick="window.location='product_description.html'">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=80&q=70" style="width:44px;height:44px;object-fit:cover;border:1px solid #eee;" alt=""/>
+          <div><div style="font-size:11px;font-weight:700;color:#333;">XS SCYBA X Series</div><div style="color:var(--red);font-size:12px;font-weight:700;">$500.00</div></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main class="cat-main">
+      <!-- Toolbar -->
+      <div class="cat-toolbar">
+        <div class="toolbar-left"><span id="itemCount">6</span> Item(s)</div>
+        <div class="toolbar-right">
+          <label>Show</label>
+          <select class="toolbar-select" onchange="changePerPage(this.value)">
+            <option value="6">6</option>
+            <option value="9" selected>9</option>
+            <option value="12">12</option>
+            <option value="24">24</option>
+          </select>
+          <div class="view-btns">
+            <button class="active" id="gridViewBtn" onclick="setView('grid')" title="Grid View"><i class="fa fa-th"></i></button>
+            <button id="listViewBtn" onclick="setView('list')" title="List View"><i class="fa fa-list"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active filters -->
+      <div class="active-filters" id="activeFilters">
+        <span style="font-size:11px;color:#999;">No filters applied — showing all items</span>
+      </div>
+
+      <!-- Products -->
+      <div class="products-grid" id="productsGrid">
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=300&q=80" alt="Spa"/>
+          <div class="card-info">
+            <h6>XS SCYBA X SERIES 119</h6>
+            <p>The goods of our stores are very reliable and dur we care about the customer</p>
+            <div class="price">$500.00</div>
+            <button class="btn-cart-sm" onclick="addToCart(this)"><i class="fa fa-shopping-cart"></i> ADD TO CART</button>
+            <div class="product-links-row"><a href="#">ADD TO WISH LIST</a><a href="product_description.html">MORE DETAILS</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=300&q=80" alt="Spa"/>
+          <div class="card-info">
+            <h6>XS SCYBA X SERIES 119</h6>
+            <p>The goods of our stores are very reliable and dur we care about the customer</p>
+            <div class="price">$500.00</div>
+            <button class="btn-cart-sm" onclick="addToCart(this)"><i class="fa fa-shopping-cart"></i> ADD TO CART</button>
+            <div class="product-links-row"><a href="#">ADD TO WISH LIST</a><a href="product_description.html">MORE DETAILS</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&q=80" alt="Spa"/>
+          <div class="card-info">
+            <h6>XS SCYBA X SERIES 119</h6>
+            <p>The goods of our stores are very reliable and dur we care about the customer</p>
+            <div class="price">$500.00</div>
+            <button class="btn-cart-sm" onclick="addToCart(this)"><i class="fa fa-shopping-cart"></i> ADD TO CART</button>
+            <div class="product-links-row"><a href="#">ADD TO WISH LIST</a><a href="product_description.html">MORE DETAILS</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=300&q=80" alt="Spa"/>
+          <div class="card-info">
+            <h6>XS SCYBA X SERIES 119</h6>
+            <p>The goods of our stores are very reliable and dur we care about the customer</p>
+            <div class="price">$500.00</div>
+            <button class="btn-cart-sm" onclick="addToCart(this)"><i class="fa fa-shopping-cart"></i> ADD TO CART</button>
+            <div class="product-links-row"><a href="#">ADD TO WISH LIST</a><a href="product_description.html">MORE DETAILS</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=300&q=80" alt="Spa"/>
+          <div class="card-info">
+            <h6>XS SCYBA X SERIES 119</h6>
+            <p>The goods of our stores are very reliable and dur we care about the customer</p>
+            <div class="price">$500.00</div>
+            <button class="btn-cart-sm" onclick="addToCart(this)"><i class="fa fa-shopping-cart"></i> ADD TO CART</button>
+            <div class="product-links-row"><a href="#">ADD TO WISH LIST</a><a href="product_description.html">MORE DETAILS</a></div>
+          </div>
+        </div>
+        <div class="product-card">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=300&q=80" alt="Spa"/>
+          <div class="card-info">
+            <h6>XS SCYBA X SERIES 119</h6>
+            <p>The goods of our stores are very reliable and dur we care about the customer</p>
+            <div class="price">$500.00</div>
+            <button class="btn-cart-sm" onclick="addToCart(this)"><i class="fa fa-shopping-cart"></i> ADD TO CART</button>
+            <div class="product-links-row"><a href="#">ADD TO WISH LIST</a><a href="product_description.html">MORE DETAILS</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar">
+        <button class="page-btn" onclick="changePage(this,'prev')">‹ Prev</button>
+        <button class="page-btn active" onclick="changePage(this,1)">1</button>
+        <button class="page-btn" onclick="changePage(this,2)">2</button>
+        <button class="page-btn" onclick="changePage(this,3)">3</button>
+        <button class="page-btn" onclick="changePage(this,'next')">Next ›</button>
+      </div>
+
+      <!-- Related -->
+      <div class="related-section">
+        <h5>Customers Who Viewed This Item Also</h5>
+        <div class="related-scroll" id="relScroll">
+          <div class="rel-card"><img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=150&q=70" alt=""/><div><div class="rel-price">$2,549.15</div><div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="rel-model">B22CS30SNSS</div></div></div>
+          <div class="rel-card"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=150&q=70" alt=""/><div><div class="rel-price">$2,549.15</div><div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="rel-model">B22CS30SNSS</div></div></div>
+          <div class="rel-card"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=150&q=70" alt=""/><div><div class="rel-price">$2,549.15</div><div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="rel-model">B22CS30SNSS</div></div></div>
+          <div class="rel-card"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=150&q=70" alt=""/><div><div class="rel-price">$2,549.15</div><div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div><div class="rel-model">B22CS30SNSS</div></div></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div><!-- /page-ocean -->
+
+<!-- BRANDS -->
+<div class="brands-row">
+  <div class="row align-items-center g-3" style="max-width:980px;margin:0 auto;">
+    <div class="col-6 col-md-3"><div class="brand-save-box"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p>HUGE DISCOUNTS · SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:24px;color:#1876b8;font-weight:700;">OCEANIC<em style="font-style:italic;color:#88b8d0;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;"><span style="color:#e95c2e;">Caldera</span><span style="color:#444;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#3a7d44;">Island</span><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#555;">Spas</span><br><small style="font-size:9px;color:#999;">BY ARTESIAN</small></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="row g-4" style="max-width:1100px;margin:0 auto;">
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:5px;">yoursitename.com</p>
+      <p style="font-size:12px;margin-bottom:5px;font-weight:700;">CALL 24/7: 888 - 201 - 8899</p>
+      <p style="font-size:12px;margin-bottom:5px;">Your Address:<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitename.com</p>
+      <div class="foot-social">
+        <a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li><li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li><li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li><li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul><li><a href="login.html">Sign In</a></li><li><a href="shopping-cart.html">View Cart</a></li><li><a href="#">My Wishlist</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>SIGNUP FOR A NEWS LETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="foot-newsletter"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+      <p style="font-size:11px;color:#777;margin-top:14px;font-weight:700;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;">
+        <span class="pay-badge" style="background:#1a1a8c;color:#fff;">VISA</span>
+        <span class="pay-badge" style="background:#c00;color:#fff;">MC</span>
+        <span class="pay-badge" style="background:#2671b2;color:#fff;">AMEX</span>
+        <span class="pay-badge" style="background:#fff;color:#003087;border:1px solid #003087;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+<div class="toast-msg" id="toastMsg"><i class="fa fa-check-circle"></i><span id="toastText"></span></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="js/category.js"></script>
+</body>
+</html>

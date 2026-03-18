@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HotSpring Portable Spas – Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Call for Customer support: <a href="tel:02038989565" class="phone">020 38989565</a></span>
+  <div>
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="index.html" class="logo" style="text-decoration:none;">
+    <span class="logo-text">HOTSPRING<sup style="font-size:10px;">®</sup></span>
+    <span class="logo-sub">Portable Spas</span>
+  </a>
+  <div class="cart-area">
+    <a href="shopping-cart.html" class="cart-icon"><i class="fa fa-shopping-cart"></i> My Cart: 1 Item(s)</a>
+    <select><option>▼</option></select>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html" class="active">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- RED SEARCH BAR -->
+<div class="search-bar">
+  <div class="nav-links">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <form class="search-form" onsubmit="return false;">
+    <input type="text" placeholder="Search" id="searchInput"/>
+    <button type="submit"><i class="fa fa-search"></i> SEARCH</button>
+  </form>
+</div>
+
+<!-- HERO SLIDER -->
+<div class="hero-slider" id="heroSlider">
+  <div class="hero-slide" id="slide0" style="display:flex;">
+    <div class="hero-content">
+      <h2>Barrier Reef 158 Jet<br>TV‑Stereo – Home Theater<br>Super Spa</h2>
+      <p>Extra Large and Deep  8 Person</p>
+      <p>158 Jet Super Spa, TV‑Home Theater Spa System,</p>
+      <div class="price">$4899.00</div>
+      <a href="#" class="btn-more">More Details</a>
+    </div>
+    <img class="hero-image-right" src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?w=500&q=80" alt="Spa"/>
+  </div>
+  <div class="hero-slide" id="slide1" style="display:none; background:linear-gradient(135deg,#7ba7c4,#2c6e9e);">
+    <div class="hero-content">
+      <h2>5‑7 Person Luxury Spa</h2>
+      <p>Premium hydrotherapy jets with LED lighting.</p>
+      <div class="price">$3499.00</div>
+      <a href="#" class="btn-more">More Details</a>
+    </div>
+    <img class="hero-image-right" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Spa 2"/>
+  </div>
+  <div class="hero-slide" id="slide2" style="display:none; background:linear-gradient(135deg,#6d9fc5,#1a5f87);">
+    <div class="hero-content">
+      <h2>TV Theater Spa</h2>
+      <p>Ultimate entertainment with built‑in 4K screen.</p>
+      <div class="price">$5299.00</div>
+      <a href="#" class="btn-more">More Details</a>
+    </div>
+    <img class="hero-image-right" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500&q=80" alt="Spa 3"/>
+  </div>
+  <div class="slider-dots">
+    <span class="active" onclick="goSlide(0)"></span>
+    <span onclick="goSlide(1)"></span>
+    <span onclick="goSlide(2)"></span>
+  </div>
+</div>
+
+<!-- PROMO STRIP -->
+<div class="promo-strip">
+  <div class="promo-item" style="background:#2b7ab5;">
+    <div class="promo-content">
+      <h4>5‑7 PERSON SPA</h4>
+      <p>THIS IS PHOTOSHOPS VERSION OF LOREM IPSUM. PROIN GRAVIDA NIBH VEL VELIT AUCTOR</p>
+    </div>
+  </div>
+  <div class="promo-item" style="background:#1a5f87;">
+    <div class="promo-content">
+      <h4>TV THEATER SPA</h4>
+      <p>THIS IS PHOTOSHOPS VERSION OF LOREM IPSUM. PROIN</p>
+    </div>
+  </div>
+  <div class="promo-item save">
+    <div class="promo-content" style="text-align:center;">
+      <h2>SAVE<br>50%</h2>
+      <p>THIS IS PHOTOSHOPS VERSION OF LOREM IPSUM. PROIN GRAVIDA NIBH VEL VELIT AUCTOR</p>
+    </div>
+  </div>
+</div>
+
+<!-- NEW PRODUCTS -->
+<section class="products-section">
+  <div class="container-fluid px-0">
+    <h3 class="section-heading px-2">NEW PRODUCTS</h3>
+    <div class="row g-2" id="productGrid">
+      <!-- Row 1 -->
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SERIES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SERIES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SERIES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SET+ES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+      <!-- Row 2 -->
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SERIES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SERIES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SERIES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+      <div class="col-6 col-md-3"><div class="product-card"><img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=300&q=80" alt="Spa"/><h6>XS SCYBA X SERIES 119</h6><p>The goods of our stores are very reliable and due we care about the customer</p><div class="price">$500.00</div><button class="btn-cart"><i class="fa fa-shopping-cart"></i> ADD TO CART</button><div class="product-links"><a href="#">ADD TO WISH LIST</a><a href="#">MORE DETAILS</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS STRIP -->
+<div class="brands-strip">
+  <div class="row align-items-center g-3">
+    <div class="col-6 col-md-3">
+      <div class="brand-save">
+        <h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5>
+        <p>HUGE DISCOUNTS  SHOP EARLY FOR THE BEST SELECTION</p>
+      </div>
+    </div>
+    <div class="col-6 col-md-3 brand-logo"><span style="font-family:'Oswald',sans-serif;font-size:22px;color:#1a78b4;font-weight:700;letter-spacing:1px;">OCEANIC<em style="font-style:italic;color:#6ab;">Spa</em></span></div>
+    <div class="col-6 col-md-3 brand-logo"><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#e95c2e;font-weight:700;">Caldera<span style="color:#333;">Spas</span></span></div>
+    <div class="col-6 col-md-3 brand-logo"><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#3a7d44;font-weight:700;">Island<span style="color:#333;font-weight:400;">Spas</span><br><small style="font-size:9px;color:#888;">BY ARTESIAN</small></span></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="row g-4">
+    <div class="col-12 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:6px;">yoursitenname.com</p>
+      <p style="font-size:12px;margin-bottom:6px;">CALL 24/7: 888‑201‑8899</p>
+      <p style="font-size:12px;margin-bottom:6px;">Your Address:<br>Street<br>State & Zip Code<br>City & Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitenname.com</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="contact-us.html">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul>
+        <li><a href="login.html">Sign In</a></li>
+        <li><a href="shopping-cart.html">View Cart</a></li>
+        <li><a href="#">My Wishlist</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-3">
+      <h6>SIGNUP FOR A NEWSLETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Your email address"/>
+        <button style="background:var(--red);color:#fff;border:none;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;text-transform:uppercase;">Subscribe</button>
+      </div>
+      <p style="font-size:11px;color:#888;margin-top:14px;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;display:flex;gap:4px;flex-wrap:wrap;">
+        <span style="background:#1a1a8c;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">VISA</span>
+        <span style="background:#eb001b;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">MC</span>
+        <span style="background:#2671b2;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">AMEX</span>
+        <span style="background:#003087;color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:3px;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+<script src="js/index.js"></script>
+</body>
+</html>
