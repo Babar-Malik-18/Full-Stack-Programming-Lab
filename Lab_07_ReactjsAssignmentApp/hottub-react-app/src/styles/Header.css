@@ -1,0 +1,47 @@
+/* src/styles/Header.css */
+.site-header {
+  background: #fff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.logo { text-decoration: none; line-height: 1; }
+.logo-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 1px;
+}
+.logo-brand sup { font-size: 11px; }
+.logo-tagline {
+  font-size: 12px;
+  font-weight: 700;
+  color: #cc0000;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  display: block;
+}
+.header-right { display: flex; align-items: center; gap: 6px; }
+.cart-btn {
+  background: #cc0000;
+  color: #fff;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 2px;
+  transition: background .2s;
+}
+.cart-btn:hover { background: #aa0000; color: #fff; }
+.header-dropdown {
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
