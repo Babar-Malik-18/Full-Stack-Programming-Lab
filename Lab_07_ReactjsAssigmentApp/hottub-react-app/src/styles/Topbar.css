@@ -1,0 +1,12 @@
+.topbar {
+  background: #f0f0f0;
+  border-bottom: 1px solid #d8d8d8;
+  padding: 5px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+}
+.topbar .phone { color: #cc0000; font-weight: 700; }
+.topbar-right a { color: #444; text-decoration: none; margin-left: 18px; transition: color .2s; }
+.topbar-right a:hover { color: #cc0000; }
