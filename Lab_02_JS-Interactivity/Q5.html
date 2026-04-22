@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+</head>
+
+<body>
+
+    <h2>Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Name"><br>
+        <div id="nameError"></div>
+
+        <input type="text" id="email" placeholder="Email"><br>
+        <div id="emailError"></div>
+
+        <input type="number" id="age" placeholder="Age"><br>
+        <div id="ageError"></div>
+
+        <input type="password" id="password" placeholder="Password"><br>
+        <div id="passError"></div>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <div id="message"></div>
+
+    <script>
+        function validateName() {
+            var value = document.getElementById("name").value;
+            if (value === "") {
+                document.getElementById("nameError").innerHTML = "Name should not be empty";
+                return false;
+            } else {
+                document.getElementById("nameError").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateEmail() {
+            var value = document.getElementById("email").value;
+            if (value.indexOf("@") === -1) {
+                document.getElementById("emailError").innerHTML = "Email must contain @";
+                return false;
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateAge() {
+            var value = document.getElementById("age").value;
+            if (value < 18 || value > 60) {
+                document.getElementById("ageError").innerHTML = "Age must be between 18-60";
+                return false;
+            } else {
+                document.getElementById("ageError").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validatePassword() {
+            var value = document.getElementById("password").value;
+            if (value.length < 6) {
+                document.getElementById("passError").innerHTML = "Password minimum length 6";
+                return false;
+            } else {
+                document.getElementById("passError").innerHTML = "";
+                return true;
+            }
+        }
+
+        function validateForm() {
+            var n = validateName();
+            var e = validateEmail();
+            var a = validateAge();
+            var p = validatePassword();
+
+            if (n && e && a && p) {
+                if (confirm("Do you want to submit the form?")) {
+                    document.getElementById("message").innerHTML = "Registration Successful";
+                    alert("Thank you for registering!");
+                }
+            }
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shopping Cart – HotSpring Portable Spas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/shopping-cart.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <span>Call for Customer support: <span class="phone">020 38989565</span></span>
+  <div class="topbar-right">
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="payment-form.html">To Checkout</a>
+  </div>
+</div>
+
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-brand">HOTSPRING<sup>®</sup></span>
+    <span class="logo-tagline">Portable Spas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="shopping-cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> My Cart: &nbsp;<span id="cartCount">2</span> Item(s)</a>
+    <select style="border:1px solid #ccc;padding:5px 8px;font-size:12px;cursor:pointer;"><option>▼</option></select>
+  </div>
+</header>
+
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<div class="red-bar">
+  <div class="red-bar-nav">
+    <a href="category.html">CATEGORY</a><a href="#">BRAND</a><a href="about-us.html">INFO</a>
+  </div>
+  <div class="search-wrap">
+    <input type="text" placeholder="Search"/>
+    <button><i class="fa fa-search"></i> SEARCH</button>
+  </div>
+</div>
+
+<div class="page-ocean">
+  <div class="breadcrumb-strip">
+    <div style="max-width:880px;margin:0 auto;">
+      <a href="index.html">Home</a><span class="sep">›</span><span>Shopping Cart</span>
+    </div>
+  </div>
+
+  <div class="main-card">
+    <h1>Shopping Cart</h1>
+
+    <div class="cart-inner">
+      <div class="cart-inner-title">Your Shopping Cart</div>
+
+      <div class="cart-success">
+        <i class="fa fa-check-circle" style="color:#28a745;font-size:15px;"></i>
+        <span><strong>The Cabaret 3 Person 41 Jet Hot Tub-110 Volt Plug in</strong> was just added cart.</span>
+      </div>
+
+      <div class="cart-header-row">
+        <span>Items added: <a href="#" style="color:#2980b9;font-weight:700;text-decoration:none;">user_name</a></span>
+        <span>Items total</span>
+      </div>
+
+      <!-- Item 1 -->
+      <div class="cart-item" id="item1">
+        <img class="cart-item-img" src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=160&q=80" alt="Spa" onclick="window.location='product_description.html'"/>
+        <div>
+          <a class="cart-item-name" href="product_description.html">The Cabaret 3 Person 41 Jet Hot Tub-110 Volt Plug in or 220 Volt Version</a>
+          <div class="cart-item-desc">220 V/50 AMP – 4.5KW Heater 110 V/15 AMP – 1KW Heater! convertible To 220 V / 4KW Heater</div>
+          <div class="cart-item-shipping"><i class="fa fa-truck" style="font-size:10px;margin-right:3px;"></i>Standard (7 - 10 business days)</div>
+          <div class="cart-item-actions">
+            <a href="#" onclick="removeItem('item1',event)">Remove</a>
+            <span class="sep2">|</span>
+            <a href="product_description.html">Edit Your Order</a>
+          </div>
+        </div>
+        <div class="qty-wrap">
+          <span class="qty-label">Quantity: </span>
+          <select class="qty-select" onchange="showToast('Quantity updated')">
+            <option>1</option><option selected>10</option><option>20</option><option>50</option>
+          </select>
+        </div>
+        <div class="item-price">$9.00</div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="cart-item" id="item2">
+        <img class="cart-item-img" src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=160&q=80" alt="Spa" onclick="window.location='product_description.html'"/>
+        <div>
+          <a class="cart-item-name" href="product_description.html">The Cabaret 3 Person 41 Jet Hot Tub-110 Volt Plug in or 220 Volt Version</a>
+          <div class="cart-item-desc">220 V/50 AMP – 4.5KW Heater 110 V/15 AMP – 1KW Heater! convertible To 220 V / 4KW Heater</div>
+          <div class="cart-item-shipping"><i class="fa fa-truck" style="font-size:10px;margin-right:3px;"></i>Standard (7 - 10 business days)</div>
+          <div class="cart-item-actions">
+            <a href="#" onclick="removeItem('item2',event)">Remove</a>
+            <span class="sep2">|</span>
+            <a href="product_description.html">Edit Your Order</a>
+          </div>
+        </div>
+        <div class="qty-wrap">
+          <span class="qty-label">Quantity: </span>
+          <select class="qty-select" onchange="showToast('Quantity updated')">
+            <option>1</option><option selected>10</option><option>20</option><option>50</option>
+          </select>
+        </div>
+        <div class="item-price">$9.00</div>
+      </div>
+
+      <!-- Summary -->
+      <div class="cart-summary-row">
+        <div class="cart-total-text">Cart summary (2 items)<strong>Total: $21.00</strong></div>
+        <a href="index.html" class="btn-continue">CONTINUE SHOPPING</a>
+        <a href="payment-form.html" class="btn-checkout"><i class="fa fa-lock"></i> PROCEED TO CHECKOUT</a>
+      </div>
+    </div>
+
+    <!-- Related -->
+    <div class="related-section">
+      <h5>Customers Who Viewed This Item Also</h5>
+      <div class="related-track">
+        <button class="rel-arrow" onclick="document.getElementById('relScroll').scrollLeft -= 165"><i class="fa fa-chevron-left"></i></button>
+        <div class="rel-scroll" id="relScroll">
+          <div class="rel-card" onclick="window.location='product_description.html'">
+            <img src="https://images.unsplash.com/photo-1570798359490-81f9e99e7e6c?w=200&q=70" alt=""/>
+            <div class="rel-price">$2,549.15</div>
+            <div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+            <div class="rel-model">B22CS30SNSS</div>
+          </div>
+          <div class="rel-card" onclick="window.location='product_description.html'">
+            <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=200&q=70" alt=""/>
+            <div class="rel-price">$2,549.15</div>
+            <div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+            <div class="rel-model">B22CS30SNSS</div>
+          </div>
+          <div class="rel-card" onclick="window.location='product_description.html'">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=200&q=70" alt=""/>
+            <div class="rel-price">$2,549.15</div>
+            <div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+            <div class="rel-model">B22CS30SNSS</div>
+          </div>
+          <div class="rel-card" onclick="window.location='product_description.html'">
+            <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=200&q=70" alt=""/>
+            <div class="rel-price">$2,549.15</div>
+            <div class="rel-name">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+            <div class="rel-model">B22CS30SNSS</div>
+          </div>
+        </div>
+        <button class="rel-arrow" onclick="document.getElementById('relScroll').scrollLeft += 165"><i class="fa fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BRANDS -->
+<div class="brands-row">
+  <div class="row align-items-center g-3" style="max-width:880px;margin:0 auto;">
+    <div class="col-6 col-md-3"><div class="brand-save-box"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p>HUGE DISCOUNTS · SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:24px;color:#1876b8;font-weight:700;">OCEANIC<em style="font-style:italic;color:#88b8d0;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;"><span style="color:#e95c2e;">Caldera</span><span style="color:#444;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#3a7d44;">Island</span><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#555;">Spas</span><br><small style="font-size:9px;color:#999;">BY ARTESIAN</small></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="row g-4" style="max-width:1100px;margin:0 auto;">
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:5px;">yoursitename.com</p>
+      <p style="font-size:12px;margin-bottom:5px;font-weight:700;">CALL 24/7: 888 - 201 - 8899</p>
+      <p style="font-size:12px;margin-bottom:14px;">Your Address:<br>Street<br>State &amp; Zip Code<br>City &amp; Country<br>Email: servicemail@yoursitename.com</p>
+      <div class="foot-social">
+        <a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li><li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li><li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li><li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul><li><a href="login.html">Sign In</a></li><li><a href="shopping-cart.html">View Cart</a></li><li><a href="#">My Wishlist</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>SIGNUP FOR A NEWS LETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="foot-newsletter"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+      <p style="font-size:11px;color:#777;margin-top:14px;font-weight:700;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;">
+        <span class="pay-badge" style="background:#1a1a8c;color:#fff;">VISA</span>
+        <span class="pay-badge" style="background:#c00;color:#fff;">MC</span>
+        <span class="pay-badge" style="background:#2671b2;color:#fff;">AMEX</span>
+        <span class="pay-badge" style="background:#fff;color:#003087;border:1px solid #003087;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+<div class="toast-msg" id="toastMsg"><i class="fa fa-info-circle"></i><span id="toastText"></span></div>
+
+
+<script src="js/shopping-cart.js"></script>
+</body>
+</html>

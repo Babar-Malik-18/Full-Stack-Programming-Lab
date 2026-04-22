@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Product Catalog</title>
+<style>
+body{
+    font-family:'Segoe UI', Arial;
+    margin:0;
+    background:linear-gradient(135deg,#6610f2,#6f42c1);
+    padding:40px;
+}
+.wrapper{
+    max-width:850px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    margin-bottom:25px;
+}
+.product{
+    background:#f8f9fc;
+    padding:15px;
+    margin:10px 0;
+    border-radius:8px;
+    border-left:6px solid #6610f2;
+}
+.search{
+    background:#e2e3ff;
+    padding:15px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+.total{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+<h1>Product Catalog</h1>
+<div id="output"></div>
+</div>
+
+<script>
+const products=new Map();
+
+products.set(101,{name:"Laptop",price:100000});
+products.set(102,{name:"Mouse",price:2500});
+products.set(103,{name:"Keyboard",price:5000});
+products.set(104,{name:"Monitor",price:20000});
+products.set(105,{name:"USB Drive",price:1500});
+
+const searchedProduct=products.get(102);
+products.delete(105);
+
+let result=`
+<div class="search">
+<b>Search Result (ID 102)</b><br>
+Name: ${searchedProduct.name}<br>
+Price: Rs ${searchedProduct.price}
+</div>
+`;
+
+products.forEach((product,id)=>{
+result+=`
+<div class="product">
+ID: ${id}<br>
+Name: ${product.name}<br>
+Price: Rs ${product.price}
+</div>`;
+});
+
+result+=`<div class="total">Total Products: ${products.size}</div>`;
+
+document.getElementById("output").innerHTML=result;
+</script>
+
+</body>
+</html>

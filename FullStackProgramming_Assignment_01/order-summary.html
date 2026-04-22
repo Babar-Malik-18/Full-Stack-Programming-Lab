@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Summary – HotSpring Portable Spas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/order-summary.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Call for Customer support: <span class="phone">020 38989565</span></span>
+  <div class="topbar-right">
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-brand">HOTSPRING<sup>®</sup></span>
+    <span class="logo-tagline">Portable Spas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="shopping-cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> My Cart: &nbsp;0 Item(s)</a>
+    <select style="border:1px solid #ccc;padding:5px 8px;font-size:12px;cursor:pointer;"><option>▼</option></select>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- RED BAR -->
+<div class="red-bar">
+  <div class="red-bar-nav">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <div class="search-wrap">
+    <input type="text" placeholder="Search"/>
+    <button type="button"><i class="fa fa-search"></i> SEARCH</button>
+  </div>
+</div>
+
+<!-- PAGE -->
+<div class="page-ocean">
+  <div class="breadcrumb-strip">
+    <div style="max-width:860px;margin:0 auto;">
+      <a href="index.html">Home</a><span class="sep">›</span>
+      <a href="my_account.html">User Account</a><span class="sep">›</span>
+      <span>Order Summary</span>
+    </div>
+  </div>
+
+  <div class="main-card">
+    <h1>Order Summery</h1>
+
+    <!-- Thank you banner -->
+    <div class="thankyou-banner">
+      <i class="fa fa-check-circle"></i>
+      Thank you, your order has been recieved.
+    </div>
+
+    <!-- Your Order Summary -->
+    <div class="section-title">Yor Order Summry</div>
+
+    <table class="summary-meta">
+      <tr>
+        <td>Order # :</td>
+        <td>0303</td>
+      </tr>
+      <tr>
+        <td>Date :</td>
+        <td>December 21 2014</td>
+      </tr>
+      <tr>
+        <td>Total :</td>
+        <td>1 x $2500 = $2500</td>
+      </tr>
+    </table>
+
+    <!-- Bank transfer notice -->
+    <div class="bank-notice">
+      Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order wont be shipped until the funds have cleared in our account.
+    </div>
+
+    <!-- Order Line Items -->
+    <div class="section-title">Yor Order Details</div>
+
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="product_description.html">Five person hottube spa with green light inside</a></td>
+          <td>1</td>
+          <td>$ 699.00</td>
+        </tr>
+        <tr>
+          <td><a href="product_description.html">Five person hottube spa with green light inside</a></td>
+          <td>1</td>
+          <td>$ 699.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Totals -->
+    <table class="totals-table" style="margin-top:16px;">
+      <tr>
+        <td class="label">Cart Subtotal:</td>
+        <td class="value">$ 1 400.00</td>
+      </tr>
+      <tr>
+        <td class="label">Shipping:</td>
+        <td class="value">Free Shippment</td>
+      </tr>
+      <tr>
+        <td class="label">Payment method:</td>
+        <td class="value">Direct Bank Transfer</td>
+      </tr>
+      <tr class="total-row">
+        <td class="label">Total with shipping:</td>
+        <td class="value">$ 1 400.00</td>
+      </tr>
+    </table>
+
+    <!-- Bank Details -->
+    <div class="bank-section">
+      <div class="section-title">Yor Bank details</div>
+      <table class="bank-table">
+        <tr>
+          <td>Bank</td>
+          <td>Your Bank Name</td>
+        </tr>
+        <tr>
+          <td>Acc#</td>
+          <td>2014 2545 4524 5654</td>
+        </tr>
+        <tr>
+          <td>BIC</td>
+          <td>012478 541245641212</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- 3-column: Customer / Billing / Shipping -->
+    <div class="addresses-grid">
+
+      <!-- Customer details -->
+      <div class="addr-col" style="padding-right:20px;">
+        <h5>Customer details</h5>
+        <div class="addr-kv">
+          <span class="key">Customer Name</span><span>Farukh Javaid</span>
+          <span class="key">Email</span><span>email@hotubdirect.com</span>
+          <span class="key">Phone</span><span>0888 7578 787</span>
+        </div>
+      </div>
+
+      <!-- Billing address -->
+      <div class="addr-col" style="padding: 0 14px; border-left:1px solid #eee;">
+        <h5>Billing address</h5>
+        <div class="addr-plain">
+          Farukh Javaid<br>
+          Hottub Spas<br>
+          Plot 10 Tech Society<br>
+          California, CA 20112<br>
+          United State
+        </div>
+      </div>
+
+      <!-- Shipping address -->
+      <div class="addr-col" style="padding-left:20px; border-left:1px solid #eee;">
+        <h5>Shipping address</h5>
+        <div class="addr-plain">
+          Farukh Javaid<br>
+          Hottub Spas<br>
+          Plot 10 Tech Society<br>
+          California, CA 20112<br>
+          United State
+        </div>
+      </div>
+
+    </div><!-- /addresses-grid -->
+
+    <!-- Action bar -->
+    <div class="action-bar">
+      <a href="index.html" class="btn-action"><i class="fa fa-home"></i> Continue Shopping</a>
+      <a href="my_account.html" class="btn-action secondary"><i class="fa fa-user"></i> My Account</a>
+      <button class="btn-print" onclick="window.print()"><i class="fa fa-print"></i> Print Receipt</button>
+    </div>
+
+  </div><!-- /main-card -->
+</div><!-- /page-ocean -->
+
+<!-- BRANDS -->
+<div class="brands-row">
+  <div class="row align-items-center g-3" style="max-width:860px;margin:0 auto;">
+    <div class="col-6 col-md-3"><div class="brand-save-box"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p>HUGE DISCOUNTS · SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:24px;color:#1876b8;font-weight:700;">OCEANIC<em style="font-style:italic;color:#88b8d0;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;"><span style="color:#e95c2e;">Caldera</span><span style="color:#444;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#3a7d44;">Island</span><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#555;">Spas</span><br><small style="font-size:9px;color:#999;">BY ARTESIAN</small></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="row g-4" style="max-width:1100px;margin:0 auto;">
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:5px;">yoursitename.com</p>
+      <p style="font-size:12px;margin-bottom:5px;font-weight:700;">CALL 24/7: 888 - 201 - 8899</p>
+      <p style="font-size:12px;margin-bottom:5px;">Your Address:<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitename.com</p>
+      <div class="foot-social">
+        <a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li><li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li><li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li><li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul><li><a href="login.html">Sign In</a></li><li><a href="shopping-cart.html">View Cart</a></li><li><a href="#">My Wishlist</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>SIGNUP FOR A NEWS LETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="foot-newsletter"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+      <p style="font-size:11px;color:#777;margin-top:14px;font-weight:700;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;">
+        <span class="pay-badge" style="background:#1a1a8c;color:#fff;">VISA</span>
+        <span class="pay-badge" style="background:#c00;color:#fff;">MC</span>
+        <span class="pay-badge" style="background:#2671b2;color:#fff;">AMEX</span>
+        <span class="pay-badge" style="background:#fff;color:#003087;border:1px solid #003087;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>

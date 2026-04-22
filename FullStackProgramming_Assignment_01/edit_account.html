@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Profile Details – HotSpring Portable Spas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+<link rel="stylesheet" href="css/edit_account.css"/>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Call for Customer support: <span class="phone">020 38989565</span></span>
+  <div class="topbar-right">
+    <a href="my_account.html">My Account</a>
+    <a href="#">Wishlist</a>
+    <a href="shopping-cart.html">To Checkout</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <span class="logo-brand">HOTSPRING<sup>®</sup></span>
+    <span class="logo-tagline">Portable Spas</span>
+  </a>
+  <div style="display:flex;align-items:center;gap:6px;">
+    <a href="shopping-cart.html" class="cart-btn"><i class="fa fa-shopping-cart"></i> My Cart: &nbsp;0 Item(s)</a>
+    <select style="border:1px solid #ccc;padding:5px 8px;font-size:12px;cursor:pointer;"><option>▼</option></select>
+  </div>
+</header>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="category.html">PRODUCTS</a></li>
+    <li><a href="#">SPECIAL OFFERS</a></li>
+    <li><a href="#">CUSTOM</a></li>
+  </ul>
+</nav>
+
+<!-- RED BAR -->
+<div class="red-bar">
+  <div class="red-bar-nav">
+    <a href="category.html">CATEGORY</a>
+    <a href="#">BRAND</a>
+    <a href="about-us.html">INFO</a>
+  </div>
+  <div class="search-wrap">
+    <input type="text" placeholder="Search"/>
+    <button type="button"><i class="fa fa-search"></i> SEARCH</button>
+  </div>
+</div>
+
+<!-- PAGE -->
+<div class="page-ocean">
+  <div class="breadcrumb-strip">
+    <div style="max-width:860px;margin:0 auto;">
+      <a href="index.html">Home</a><span class="sep">›</span>
+      <a href="my_account.html">User Account</a><span class="sep">›</span>
+      <span>Edit profile details</span>
+    </div>
+  </div>
+
+  <div class="main-card">
+    <h1>Edit Profile details</h1>
+
+    <div class="form-box">
+      <p class="form-intro">Please fill the form below to update your Profile details.</p>
+      <p class="req-note">*Required Fields</p>
+
+      <form id="editProfileForm" novalidate onsubmit="submitProfile(event)">
+
+        <!-- First Name -->
+        <div class="field-row">
+          <label class="field-label">First Name <span class="star">*</span></label>
+          <input type="text" class="field-input" id="ep_first" placeholder="" oninput="clearE('ep_first')"/>
+          <span class="err-inline" id="ep_firstErr">Required</span>
+        </div>
+
+        <!-- Last Name -->
+        <div class="field-row">
+          <label class="field-label">Last Name <span class="star">*</span></label>
+          <input type="text" class="field-input" id="ep_last" placeholder="" oninput="clearE('ep_last')"/>
+          <span class="err-inline" id="ep_lastErr">Required</span>
+        </div>
+
+        <!-- Email -->
+        <div class="field-row">
+          <label class="field-label">Email <span class="star">*</span></label>
+          <input type="email" class="field-input" id="ep_email" placeholder="" oninput="clearE('ep_email')"/>
+          <span class="err-inline" id="ep_emailErr">Valid email required</span>
+        </div>
+
+        <hr class="form-divider"/>
+
+        <!-- Current Password -->
+        <div class="field-row">
+          <label class="field-label">Current Password <span class="star">*</span></label>
+          <input type="password" class="field-input" id="ep_curpass" placeholder="" oninput="clearE('ep_curpass')"/>
+          <span class="err-inline" id="ep_curpassErr">Required</span>
+        </div>
+
+        <!-- New Password -->
+        <div class="field-row">
+          <label class="field-label">New Password <span class="star">*</span></label>
+          <input type="password" class="field-input" id="ep_newpass" placeholder="" oninput="clearE('ep_newpass'); checkStrength(this.value)"/>
+          <span class="err-inline" id="ep_newpassErr">Min 6 characters</span>
+        </div>
+
+        <!-- Password strength -->
+        <div class="pw-strength-wrap" id="pwStrengthWrap">
+          <div class="pw-bar"><div class="pw-fill" id="pwFill"></div></div>
+          <span class="pw-label" id="pwLabel"></span>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="field-row">
+          <label class="field-label">Confirm Password <span class="star">*</span></label>
+          <input type="password" class="field-input" id="ep_confirm" placeholder="" oninput="clearE('ep_confirm')"/>
+          <span class="err-inline" id="ep_confirmErr">Passwords must match</span>
+        </div>
+
+        <!-- Update button -->
+        <div style="margin-top:14px;">
+          <button type="submit" class="btn-update">UPDATE DETAILS</button>
+          <a href="my_account.html" class="btn-cancel-link">Cancel</a>
+        </div>
+
+        <!-- Success -->
+        <div class="success-msg" id="epSuccess">
+          <i class="fa fa-check-circle" style="color:#28a745;font-size:18px;flex-shrink:0;"></i>
+          <span>Profile updated successfully! <a href="my_account.html" style="color:#155724;font-weight:700;">Return to My Account</a></span>
+        </div>
+
+      </form>
+    </div><!-- /form-box -->
+  </div><!-- /main-card -->
+</div><!-- /page-ocean -->
+
+<!-- BRANDS -->
+<div class="brands-row">
+  <div class="row align-items-center g-3" style="max-width:860px;margin:0 auto;">
+    <div class="col-6 col-md-3"><div class="brand-save-box"><h5>SAVE $1,000'S<br>ON THE TOP SPA BRANDS</h5><p>HUGE DISCOUNTS · SHOP EARLY FOR THE BEST SELECTION</p></div></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:24px;color:#1876b8;font-weight:700;">OCEANIC<em style="font-style:italic;color:#88b8d0;">Spa</em></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;"><span style="color:#e95c2e;">Caldera</span><span style="color:#444;">Spas</span></span></div>
+    <div class="col-6 col-md-3" style="text-align:center;"><span style="font-family:'Oswald',sans-serif;font-size:20px;font-weight:700;color:#3a7d44;">Island</span><span style="font-family:'Oswald',sans-serif;font-size:20px;color:#555;">Spas</span><br><small style="font-size:9px;color:#999;">BY ARTESIAN</small></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="row g-4" style="max-width:1100px;margin:0 auto;">
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>CONTACT US</h6>
+      <p style="font-size:12px;margin-bottom:5px;">yoursitename.com</p>
+      <p style="font-size:12px;margin-bottom:5px;font-weight:700;">CALL 24/7: 888 - 201 - 8899</p>
+      <p style="font-size:12px;margin-bottom:5px;">Your Address:<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+      <p style="font-size:12px;margin-bottom:14px;">Email: servicemail@yoursitename.com</p>
+      <div class="foot-social">
+        <a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-pinterest-p"></i></a>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>INFORMATION</h6>
+      <ul>
+        <li><a href="about-us.html">About Us</a></li><li><a href="#">Customer Service</a></li>
+        <li><a href="#">Privacy Policy</a></li><li><a href="#">Site Map</a></li>
+        <li><a href="#">Search Terms</a></li><li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul><li><a href="login.html">Sign In</a></li><li><a href="shopping-cart.html">View Cart</a></li><li><a href="#">My Wishlist</a></li></ul>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <h6>SIGNUP FOR A NEWS LETTER</h6>
+      <p style="font-size:11px;margin-bottom:8px;">SIGN UP FOR OUR NEWS LETTER:</p>
+      <div class="foot-newsletter"><input type="email" placeholder="Your email address"/><button>Subscribe</button></div>
+      <p style="font-size:11px;color:#777;margin-top:14px;font-weight:700;">PAYMENT SOLUTIONS</p>
+      <div style="margin-top:6px;">
+        <span class="pay-badge" style="background:#1a1a8c;color:#fff;">VISA</span>
+        <span class="pay-badge" style="background:#c00;color:#fff;">MC</span>
+        <span class="pay-badge" style="background:#2671b2;color:#fff;">AMEX</span>
+        <span class="pay-badge" style="background:#fff;color:#003087;border:1px solid #003087;">PayPal</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2014 Hottubspaservice.com. All Rights Reserved.</div>
+</footer>
+
+
+<script src="js/edit_account.js"></script>
+</body>
+</html>
