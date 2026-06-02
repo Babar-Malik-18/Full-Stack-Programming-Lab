@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Forecast API | Lab 13</title>
+  <style>
+    :root{
+      --bg:#061525; --panel:rgba(255,255,255,.10); --panel2:rgba(255,255,255,.07);
+      --border:rgba(255,255,255,.18); --text:#eef8ff; --muted:#a8c2d7;
+      --cyan:#35d9ff; --blue:#5d7cff; --green:#70f0bd; --pink:#ff72c7;
+      --shadow:0 30px 90px rgba(0,0,0,.42);
+    }
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
+    body{min-height:100vh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);overflow-x:hidden;background:radial-gradient(circle at 20% 10%,#185c84 0,transparent 35%),radial-gradient(circle at 88% 18%,#653ed8 0,transparent 30%),linear-gradient(135deg,#061525 0%,#0b2038 45%,#070b1e 100%)}
+    body:before,body:after{content:"";position:fixed;inset:-20%;pointer-events:none;z-index:-1;background:conic-gradient(from 180deg at 50% 50%,transparent,#35d9ff33,transparent,#ff72c733,transparent);animation:spin 18s linear infinite;filter:blur(70px);opacity:.55} body:after{animation-direction:reverse;opacity:.28}
+    @keyframes spin{to{transform:rotate(1turn)}}
+    .noise{position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+    .wrap{width:min(1180px,92vw);margin:auto;padding:34px 0 54px}.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;min-height:240px;margin-bottom:26px}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid var(--border);border-radius:999px;background:rgba(255,255,255,.08);color:var(--green);font-weight:700;font-size:13px;backdrop-filter:blur(18px);animation:rise .7s ease both}.hero h1{font-size:clamp(38px,7vw,76px);line-height:.95;margin:18px 0 14px;letter-spacing:-3px;animation:rise .8s .08s ease both}.hero h1 span{background:linear-gradient(90deg,var(--cyan),#fff,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:680px;color:var(--muted);font-size:17px;line-height:1.7;animation:rise .8s .16s ease both}.hero-art{height:255px;border:1px solid var(--border);border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.04));box-shadow:var(--shadow);position:relative;overflow:hidden;backdrop-filter:blur(22px);animation:floatIn .9s .15s ease both}.sun{width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,#fff8b5,#ffd45d 58%,#ff914d);position:absolute;top:38px;left:48px;box-shadow:0 0 80px #ffc65f;animation:pulse 2.8s ease-in-out infinite}.cloud{position:absolute;width:210px;height:76px;background:rgba(255,255,255,.86);border-radius:55px;left:110px;top:96px;filter:drop-shadow(0 18px 20px rgba(0,0,0,.18));animation:drift 5s ease-in-out infinite}.cloud:before,.cloud:after{content:"";position:absolute;background:inherit;border-radius:50%}.cloud:before{width:92px;height:92px;left:34px;bottom:22px}.cloud:after{width:112px;height:112px;right:36px;bottom:18px}.rain{position:absolute;inset:170px 0 0 0;display:flex;justify-content:center;gap:22px}.rain i{display:block;width:4px;height:34px;border-radius:999px;background:linear-gradient(var(--cyan),transparent);animation:drop 1s linear infinite}.rain i:nth-child(2){animation-delay:.15s}.rain i:nth-child(3){animation-delay:.3s}.rain i:nth-child(4){animation-delay:.45s}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}@keyframes floatIn{from{opacity:0;transform:translateY(25px) scale(.98)}to{opacity:1;transform:none}}@keyframes pulse{50%{transform:scale(1.05);box-shadow:0 0 110px #ffc65f}}@keyframes drift{50%{transform:translateX(18px)}}@keyframes drop{to{transform:translateY(55px);opacity:0}}
+    .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}.card{border:1px solid var(--border);background:linear-gradient(180deg,rgba(255,255,255,.14),rgba(255,255,255,.06));box-shadow:var(--shadow);border-radius:28px;padding:24px;backdrop-filter:blur(22px);animation:rise .8s ease both}.card h2{font-size:22px;margin-bottom:16px}.search{display:flex;gap:12px;flex-wrap:wrap}.field{flex:1;min-width:220px;position:relative}.field input{width:100%;padding:17px 18px 17px 48px;border-radius:18px;border:1px solid var(--border);background:rgba(0,0,0,.18);color:#fff;outline:none;font-size:15px;transition:.25s}.field input:focus{border-color:var(--cyan);box-shadow:0 0 0 5px rgba(53,217,255,.12)}.field b{position:absolute;left:17px;top:15px}.btn{border:0;border-radius:18px;padding:16px 20px;color:#071324;font-weight:900;cursor:pointer;transition:.25s;position:relative;overflow:hidden}.btn:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-120%);transition:.65s}.btn:hover:before{transform:translateX(120%)}.btn:hover{transform:translateY(-3px)}.primary{background:linear-gradient(135deg,var(--cyan),var(--green))}.secondary{background:linear-gradient(135deg,#a98bff,var(--pink));color:white}.chips{display:flex;gap:9px;flex-wrap:wrap;margin:17px 0 4px}.chip{border:1px solid var(--border);background:rgba(255,255,255,.08);color:var(--muted);padding:9px 12px;border-radius:999px;cursor:pointer;font-weight:700;font-size:13px;transition:.2s}.chip:hover{transform:translateY(-2px);color:white;border-color:var(--cyan)}.status{display:none;margin-top:18px;padding:15px;border-radius:18px;border:1px solid var(--border);background:rgba(0,0,0,.14);color:var(--muted)}.status.show{display:block}.status.error{border-color:rgba(255,114,135,.4);color:#ffb5c0;background:rgba(255,64,106,.12)}.result{display:none;margin-top:20px}.result.show{display:block;animation:rise .5s ease both}.weather-head{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:18px}.place{display:flex;gap:14px;align-items:center}.place img{width:88px;height:88px;border-radius:24px;background:rgba(255,255,255,.12)}.place h3{font-size:34px;letter-spacing:-1px}.place p{color:var(--muted);text-transform:capitalize}.temp{font-size:58px;font-weight:1000;letter-spacing:-3px;background:linear-gradient(90deg,#fff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat{background:var(--panel2);border:1px solid var(--border);border-radius:20px;padding:16px;transition:.25s}.stat:hover{transform:translateY(-4px);background:rgba(255,255,255,.11)}.stat small{display:block;color:var(--muted);font-weight:800;text-transform:uppercase;font-size:11px;letter-spacing:.8px}.stat strong{display:block;margin-top:7px;font-size:18px}.forecast{display:grid;gap:10px}.day{display:grid;grid-template-columns:100px 52px 1fr auto;gap:12px;align-items:center;padding:12px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.07);animation:rise .45s ease both}.day img{width:48px}.day .desc{color:var(--muted);text-transform:capitalize}.day .deg{font-weight:900;color:var(--cyan)}.json{display:none;margin-top:16px;max-height:330px;overflow:auto;background:rgba(1,5,12,.68);border:1px solid rgba(112,240,189,.25);border-radius:18px;padding:16px;color:#b8ffd9;font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap}.json.show{display:block}.mini{color:var(--muted);font-size:14px;line-height:1.8}.endpoints code{display:block;margin:10px 0;padding:12px;border-radius:14px;background:rgba(0,0,0,.2);border:1px solid var(--border);color:#bff6ff;word-break:break-all}.toggle{margin-top:12px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:13px;padding:10px 12px;cursor:pointer}.footer{margin-top:22px;color:var(--muted);text-align:center;font-size:13px}@media(max-width:900px){.hero,.grid{grid-template-columns:1fr}.hero-art{height:210px}.stats{grid-template-columns:repeat(2,1fr)}.temp{font-size:46px}}@media(max-width:560px){.stats{grid-template-columns:1fr}.day{grid-template-columns:1fr 42px}.day .deg{justify-self:start}.hero h1{letter-spacing:-1px}.card{padding:18px}}
+  </style>
+</head>
+<body>
+<div class="noise"></div>
+<main class="wrap">
+  <section class="hero">
+    <div>
+      <div class="eyebrow">⚡ Lab 13 · RESTful API Deployment & Testing</div>
+      <h1>Real-Time <span>Weather</span> API</h1>
+      <p>A polished browser tester for your Node.js + Express REST API. Search any valid city, view current conditions, inspect the 5-day forecast, and copy direct API URLs for Postman/browser testing.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="cloud"></div><div class="rain"><i></i><i></i><i></i><i></i></div></div>
+  </section>
+
+  <section class="grid">
+    <div class="card">
+      <h2>🌦 Interactive API Tester</h2>
+      <div class="search">
+        <label class="field"><b>📍</b><input id="cityInput" type="text" value="Karachi" placeholder="Enter city name e.g. Karachi, Lahore, Dubai" /></label>
+        <button class="btn primary" onclick="fetchWeather()">Current Weather</button>
+        <button class="btn secondary" onclick="fetchForecast()">5-Day Forecast</button>
+      </div>
+      <div class="chips">
+        <span class="chip" onclick="setCity('Karachi')">Karachi</span><span class="chip" onclick="setCity('Lahore')">Lahore</span><span class="chip" onclick="setCity('Islamabad')">Islamabad</span><span class="chip" onclick="setCity('Dubai')">Dubai</span><span class="chip" onclick="setCity('London')">London</span>
+      </div>
+      <div id="status" class="status"></div>
+      <div id="currentResult" class="result">
+        <div class="weather-head"><div class="place"><img id="wIcon" alt="weather icon"><div><h3 id="wCity">—</h3><p id="wDesc">—</p></div></div><div class="temp" id="wTemp">—</div></div>
+        <div class="stats">
+          <div class="stat"><small>Feels Like</small><strong id="wFeels">—</strong></div><div class="stat"><small>Humidity</small><strong id="wHumidity">—</strong></div><div class="stat"><small>Wind</small><strong id="wWind">—</strong></div><div class="stat"><small>Pressure</small><strong id="wPressure">—</strong></div><div class="stat"><small>Visibility</small><strong id="wVis">—</strong></div><div class="stat"><small>Min / Max</small><strong id="wMinMax">—</strong></div><div class="stat"><small>Sunrise</small><strong id="wSunrise">—</strong></div><div class="stat"><small>Sunset</small><strong id="wSunset">—</strong></div>
+        </div>
+        <button class="toggle" onclick="toggleJson('jsonCurrent', this)">{ } Show Raw JSON</button><pre id="jsonCurrent" class="json"></pre>
+      </div>
+      <div id="forecastResult" class="result"><div class="weather-head"><div><h3 id="fCity" style="font-size:34px">—</h3><p class="mini">5-day city forecast from OpenWeatherMap</p></div></div><div id="forecastList" class="forecast"></div><button class="toggle" onclick="toggleJson('jsonForecast', this)">{ } Show Raw JSON</button><pre id="jsonForecast" class="json"></pre></div>
+    </div>
+    <aside class="card">
+      <h2>🔗 Test URLs</h2>
+      <p class="mini">Use these URLs in your browser or Postman after running the server.</p>
+      <div class="endpoints"><code>GET http://localhost:5000/api/weather/Karachi</code><code>GET http://localhost:5000/api/weather/Lahore</code><code>GET http://localhost:5000/api/weather/Islamabad/forecast</code><code>GET http://localhost:5000/info</code></div>
+      <h2 style="margin-top:22px">✅ Required Output</h2>
+      <p class="mini">Response includes city name, current temperature, weather condition, humidity level, wind speed, pressure, visibility, sunrise/sunset and proper API error handling.</p>
+    </aside>
+  </section>
+  <p class="footer">Task 1 · Weather Forecast API · Node.js · Express.js · OpenWeatherMap</p>
+</main>
+<script>
+  const $=id=>document.getElementById(id); const BASE='';
+  function setCity(c){$('cityInput').value=c; fetchWeather()}
+  function showStatus(msg,type='loading'){$('status').textContent=msg;$('status').className='status show '+(type==='error'?'error':'')}
+  function clearResults(){$('currentResult').classList.remove('show');$('forecastResult').classList.remove('show');$('jsonCurrent').classList.remove('show');$('jsonForecast').classList.remove('show');}
+  function getCity(){return $('cityInput').value.trim()}
+  function toggleJson(id,btn){const el=$(id); const open=el.classList.toggle('show'); btn.textContent=open?'{ } Hide Raw JSON':'{ } Show Raw JSON'}
+  async function request(url){clearResults();showStatus('Fetching live data from your REST API...');try{const r=await fetch(url);const j=await r.json();if(!j.success){showStatus((j.error||'Request failed')+(j.hint?' — '+j.hint:''),'error');return null}$('status').className='status';return j}catch(e){showStatus('Could not reach server. Run npm start and check the port.','error');return null}}
+  async function fetchWeather(){const city=getCity(); if(!city)return showStatus('Please enter a city name.','error'); const json=await request(`${BASE}/api/weather/${encodeURIComponent(city)}`); if(!json)return; const d=json.data; $('wCity').textContent=`${d.city}, ${d.country}`;$('wDesc').textContent=d.condition.description;$('wIcon').src=d.condition.icon;$('wTemp').textContent=`${Math.round(d.temperature.current)}°C`;$('wFeels').textContent=`${d.temperature.feelsLike}°C`;$('wHumidity').textContent=d.humidity;$('wWind').textContent=d.windSpeed;$('wPressure').textContent=d.pressure;$('wVis').textContent=d.visibility;$('wMinMax').textContent=`${d.temperature.min}° / ${d.temperature.max}°`;$('wSunrise').textContent=d.sunrise;$('wSunset').textContent=d.sunset;$('jsonCurrent').textContent=JSON.stringify(json,null,2);$('currentResult').classList.add('show')}
+  async function fetchForecast(){const city=getCity(); if(!city)return showStatus('Please enter a city name.','error'); const json=await request(`${BASE}/api/weather/${encodeURIComponent(city)}/forecast`); if(!json)return; const d=json.data; $('fCity').textContent=`${d.city}, ${d.country}`; $('forecastList').innerHTML=d.forecast.map((f,i)=>`<div class="day" style="animation-delay:${i*.04}s"><strong>${f.date}</strong><img src="${f.condition.icon}" alt=""><div><b>${f.condition.main}</b><div class="desc">${f.condition.description} · ${f.humidity} humidity</div></div><div class="deg">${Math.round(f.temperature.current)}°C</div></div>`).join(''); $('jsonForecast').textContent=JSON.stringify(json,null,2);$('forecastResult').classList.add('show')}
+  $('cityInput').addEventListener('keydown',e=>{if(e.key==='Enter')fetchWeather()});
+</script>
+</body>
+</html>
